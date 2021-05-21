@@ -878,7 +878,6 @@ return https.request(ApiToken..'/editMessageText?chat_id='..ChatID..'&text='..UR
 • 6 - اوامر الرد
 • 7 - اوامر الملفات 
 ]]
-• اوامر الملفات - للتحكم في ملفات البوت]]
 	  keyboard = {} 
 keyboard.inline_keyboard = {
 {
