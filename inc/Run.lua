@@ -593,7 +593,7 @@ end
 	  if datab and datab:match('/help1@(.*)') then
 	  local users = datab:match('/help1@(.*)')
 	  if tonumber(users) == tonumber(data.sender_user_id_) then
-	  local Teext =  [[ اهلا بك في قائمة اوامر الاداريين
+	  local Teext = [ [[ اهلا بك في قائمة اوامر الاداريين
 ✦¹  للاستفسار - []]..SUDO_USER..[[]
 
 ﹎﹎﹎﹎﹎اوامر الرفع والتنزيل﹎﹎﹎﹎﹎
@@ -641,7 +641,7 @@ end
 • طرد البوتات
 • طرد المحذوفين
 • كشف البوتات]]
-	  
+	  ]
 	  keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '🔙 ...', callback_data="/help@"..data.sender_user_id_}},
