@@ -1,9 +1,6 @@
 
---[[
-BY @xb_0b
-#---------------------------------------------------------------------
-]]
-[
+
+
 Er_ssl   , https = pcall(require, "ssl.https")
 Er_http  , http  = pcall(require, "socket.http")
 http.TIMEOUT = 5
@@ -1037,4 +1034,3 @@ end
 
 
 end
-]
