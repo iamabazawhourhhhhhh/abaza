@@ -78,7 +78,7 @@ sudo apt-get install libreadline-dev -y libconfig-dev -y libssl-dev -y lua5.2 -y
 if [ "$Version" == "18" ];then
 echo -e "${WHITB}\n¦ Installing depedencies for ubuntu 18  ... \n${CNIL}"
 cd /lib/x86_64-linux-gnu/ && sudo ln -s libreadline.so.7.0 libreadline.so.6
-wget "th3boss.com/installubuntu18/compat-libevent2-5_2.0.21-1ubuntu18_amd64.deb" && sudo dpkg -i compat-libevent2-5_2.0.21-1ubuntu18_amd64.deb
+wget "th3BOSS.com/installubuntu18/compat-libevent2-5_2.0.21-1ubuntu18_amd64.deb" && sudo dpkg -i compat-libevent2-5_2.0.21-1ubuntu18_amd64.deb
 rm compat-libevent2-5_2.0.21-1ubuntu18_amd64.deb
 fi
 
@@ -114,7 +114,7 @@ echo -e "\x1B[01;90m\n¦ Remove luarocks ... \n\x1B[0m"
 cd .. ;sudo rm -fr ./luarocks*
 echo -e "${WHITB}\n¦ Convert TimeZone To Asia/Baghdad  ... \n${CNIL}"
 sudo timedatectl set-timezone Asia/Baghdad
-cd && cd LANA && sudo find . -type f -print0 | xargs -0 chmod +x
+cd && cd ABAZA && sudo find . -type f -print0 | xargs -0 chmod +x
 echo -e "\n
 ${SMAY}>> Installation ${LSAMAY}Source MES ${SMAY} Completed ^_^ .\n
 Now I Have Information For Your Bot  \n
