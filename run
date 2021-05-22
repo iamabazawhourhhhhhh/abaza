@@ -4,10 +4,10 @@
 #      ███    ███ ███    ███   ███    ███   ███    ███
 #      ███    ███ ███    ███   ███    █▀    ███    █▀
 #     ▄███▄▄▄██▀  ███    ███   ███          ███
-#    ▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @TH3ABAZA
+#    ▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @TH3BOSS
 #      ███    ██▄ ███    ███          ███          ███ ¦ Dev : @OMMMM
 #      ███    ███ ███    ███    ▄█    ███    ▄█    ███
-#    ▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ Source TH3ABAZA BY @TH3BS
+#    ▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ Source TH3BOSS BY @TH3BS
 
 #---------------------------------------------------------------------
 cd $(cd $(dirname $0); pwd)
@@ -26,7 +26,7 @@ if [ ! -f "./TG" ]; then
 echo -e "${RED}
 ¦
 ¦ CAUTION:${WHITB} Your Not Dwonload TG .
-¦ NOW I Run File ${Yellow}./run${WHITB} To install ${SMAY}Source TH3ABAZA${CNIL} . \n
+¦ NOW I Run File ${Yellow}./run${WHITB} To install ${SMAY}Source TH3BOSS${CNIL} . \n
 \n\n"
 chmod +x ./ins
 ./ins
@@ -63,7 +63,7 @@ chmod +x ./TG
 if [ "$1" == "R" ]; then
 while true; do
 sleep 1s
-rm -fr ./LANA
+rm -fr ./abaza
 sudo rm -fr ~/.telegram-cli
 ./TG -s ./inc/Run.lua --bot=$TOKEN
 done
