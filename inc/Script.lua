@@ -1,4 +1,4 @@
-local function iboss(msg,MsgText)
+local function iBoss(msg,MsgText)
 
 if msg.forward_info_ then return false end
 
@@ -3066,7 +3066,7 @@ if not msg.Director then return "྿¹  هذا الامر يخص {المطور,�
 if MsgText[2] then
 
 local checkAmr = false
-for k, boss in pairs(Xboss) do if MsgText[2]:match(boss) then  checkAmr = true end end      
+for k, Boss in pairs(XBoss) do if MsgText[2]:match(Boss) then  checkAmr = true end end      
 if checkAmr then
 redis:setex(boss..":Witting_changeamr:"..msg.chat_id_..msg.sender_user_id_,300,MsgText[2])
 return "྿¹  حسننا عزيزي , لتغير امر {* "..MsgText[2].." *}  ارسل الامر الجديد الان \n..."
@@ -4206,7 +4206,7 @@ end
 
 
 
-local function dboss(msg)
+local function dBoss(msg)
 
 if msg.type == "pv" then 
 
@@ -4751,11 +4751,11 @@ end
 if checknewamr  then
 sendMsg(msg.chat_id_,msg.id_,"྿¹  عذرا لايمكن اضافه امر مكرر في القائمه \n...")
 else
-for k, boss in pairs(Xboss) do 
-local cceck,sec = boss:gsub("[(]"..Amr.."[)]","("..msg.text..")")
+for k, Boss in pairs(XBoss) do 
+local cceck,sec = Boss:gsub("[(]"..Amr.."[)]","("..msg.text..")")
 print(cceck,sec)
 if sec ~= 0 then
-redis:hset(boss..":AwamerBotArray:"..msg.chat_id_,cceck,boss)
+redis:hset(boss..":AwamerBotArray:"..msg.chat_id_,cceck,Boss)
 redis:hset(boss..":AwamerBotArray2:"..msg.chat_id_,msg.text,Amr)
 end
 end  
@@ -4776,10 +4776,10 @@ for name,Course in pairs(Awammer) do if name == msg.text then checknewamr = true
 if checknewamr  then
 sendMsg(msg.chat_id_,msg.id_,"྿¹  عذرا لايمكن اضافه امر مكرر في القائمه \n...")
 else
-for k, boss in pairs(Xboss) do 
-local cceck,sec = boss:gsub("[(]"..Amr.."[)]","("..msg.text..")")
+for k, Boss in pairs(XBoss) do 
+local cceck,sec = Boss:gsub("[(]"..Amr.."[)]","("..msg.text..")")
 if sec ~= 0 then
-redis:hset(boss..":AwamerBotArray:"..msg.chat_id_,cceck,boss) 
+redis:hset(boss..":AwamerBotArray:"..msg.chat_id_,cceck,Boss) 
 redis:hset(boss..":AwamerBotArray2:"..msg.chat_id_,msg.text,Amr)
 end
 end 
@@ -6494,7 +6494,7 @@ end
 end 
 
 return {
-boss = {
+Boss = {
 "^(اضف رد عشوائي)$",
 "^(مسح رد عشوائي)$",
 "^(مسح الردود العشوائيه)$",
@@ -7004,6 +7004,7 @@ boss = {
 "^(تعطيل ضافني)$",
 "^(مين ضافني)$",
 },
-iboss = iboss,
-dboss = dboss,
+iBoss = iBoss,
+dBoss = dBoss,
 } 
+ 
