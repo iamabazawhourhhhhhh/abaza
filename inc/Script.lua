@@ -4790,18 +4790,18 @@ redis:del(boss..":firstAmrOld:"..msg.chat_id_..msg.sender_user_id_)
 return false
 end
 
-if msg.Director and redis:get(boss..":Witting_changeamr2:"..msg.chat_id_..msg.sender_user_id_) then
-local checkAmr = false
-for k, boss in pairs(Xboss) do if msg.text:match(boss) then checkAmr = true end end      
-if checkAmr then
-sendMsg(msg.chat_id_,msg.id_,"⌔︙  حسننا عزيزي , لتغير امر {* "..msg.text.." *} \n¦ ارسل الامر الجديد الان \n...")
-redis:setex(boss..":firstAmrOld:"..msg.chat_id_..msg.sender_user_id_,900,msg.text)
-else
-sendMsg(msg.chat_id_,msg.id_,"⌔︙  عذرا لا يوجد هذا الامر في البوت لتتمكن من تغييره  \n")
-end
-redis:del(boss..":Witting_changeamr2:"..msg.chat_id_..msg.sender_user_id_)
-return false
-end
+    if msg.Director and redis:get(boss..":Witting_changeamr2:"..msg.chat_id_..msg.sender_user_id_) then
+    local checkAmr = false
+    for k, Boss in pairs(XBoss) do if msg.text:match(Boss) then checkAmr = true end end      
+    if checkAmr then
+    sendMsg(msg.chat_id_,msg.id_," حسننا عزيزي , لتغير امر {* "..msg.text.." *} \n¦ ارسل الامر الجديد الان \n...")
+    redis:setex(boss..":firstAmrOld:"..msg.chat_id_..msg.sender_user_id_,900,msg.text)
+    else
+    sendMsg(msg.chat_id_,msg.id_," عذرا لا يوجد هذا الامر في البوت لتتمكن من تغييره  \n")
+    end
+    redis:del(boss..":Witting_changeamr2:"..msg.chat_id_..msg.sender_user_id_)
+    return false
+    end
 
 
 if msg.SudoUser and msg.text and redis:get(boss..":Witing_DelNewRtba:"..msg.chat_id_..msg.sender_user_id_) then 
