@@ -2643,11 +2643,11 @@ end
 if msg.Director then
 if MsgText[1] == 'تفعيل ضافني' then 
 redis:del(boss..":Added:Me:"..msg.chat_id_)  
-sendMsg(msg.chat_id_,msg.id_,'• تم تفعيل امر مين ضافني')
+sendMsg(msg.chat_id_,msg.id_,'✶تم تفعيل امر مين ضافني')
 end
 if MsgText[1] == 'تعطيل ضافني' then  
 redis:set(boss..":Added:Me:"..msg.chat_id_,true)    
-sendMsg(msg.chat_id_,msg.id_,'• تم تعطيل امر مين ضافني')
+sendMsg(msg.chat_id_,msg.id_,'✶تم تعطيل امر مين ضافني')
 end
 end
 
@@ -4014,31 +4014,6 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request(ApiToken..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(texs).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
-
-if MsgText[1]== 'مين ضافني' then
-if not redis:get(boss..":Added:Me:"..msg.chat_id_) then
-tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
-if da and da.status_.ID == "ChatMemberStatusCreator" then
-sendMsg(msg.chat_id_,msg.id_,'*• انت منشئ المجموعه *') 
-return false
-end
-local Added_Me = redis:get(boss..":Added:Me:Who:Added:Me"..msg.chat_id_..':'..msg.sender_user_id_)
-if Added_Me then 
-tdcli_function ({ID = "GetUser",user_id_ = Added_Me},function(extra,result,success)
-local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
-Text = '*• الشخص الذي قام باضافتك هو * '..Name
-sendMsg(msg.chat_id_,msg.id_,Text) 
-end,nil)
-else
-sendMsg(msg.chat_id_,msg.id_,'*• انت دخلت عبر الرابط*') 
-end
-end,nil)
-else
-sendMsg(msg.chat_id_,msg.id_,'*• امر مين ضافني تم تعطيله من قبل المدراء *') 
-end
-end
-
-
 if MsgText[1]== 'م51' then
 if not msg.Admin then return "هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n" end
 local text =[[
