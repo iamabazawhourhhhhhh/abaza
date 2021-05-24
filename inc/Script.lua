@@ -3453,11 +3453,11 @@ end
 
 
 if MsgText[1] == "تعطيل معاني الاسماء" then
-if not msg.Director then return "• هذا الامر يخص 〚 Myth,المنشئ,المدير 〛 فقط  \n" end
+if not msg.Director then return "⌔︙  هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n" end
 redis:del(boss.."boyka:Name_Bots"..msg.chat_id_,"close")
 end
 if MsgText[1] == "تفعيل معاني الاسماء" then
-if not msg.Director then return "• هذا الامر يخص 〚 Myth,المنشئ,المدير 〛 فقط  \n" end
+if not msg.Director then return "⌔︙  هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n" end
 redis:del(boss.."boyka:Name_Bots"..msg.chat_id_,"open")
 end
 if text and text:match("^معني (.*)$") and redis:del(boss.."boyka:Name_Bots"..msg.chat_id_) == "open" then
