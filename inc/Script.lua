@@ -2640,6 +2640,18 @@ end,{chat_id_=msg.chat_id_,id_=msg.id_,TheRank=msg.TheRank})
 return false
 end
 
+
+
+if MsgText[1]== 'اسمي' then
+GetUserID(msg.sender_user_id_,function(arg,data)
+local FlterName = FlterName(data.first_name_..' '..(data.last_name_ or ""),90)
+local Get_info = " \n "..FlterName.." \n"
+return sendMsg(msg.chat_id_,msg.id_,Get_info)    
+end,nil)
+return false
+end
+
+
 if msg.Director then
 if MsgText[1] == 'تفعيل ضافني' then 
 redis:del(boss..":Added:Me:"..msg.chat_id_)  
@@ -3437,6 +3449,22 @@ return "⌔︙  الاذاعه مقفوله من قبل المطور الاسا�
 end
 redis:setex(boss..'fwd:all'..msg.sender_user_id_,300, true) 
 return "⌔︙  حسننا الان ارسل الكليشه للاذاعه عام \n" 
+end
+
+
+if MsgText[1] == "تعطيل معاني الاسماء" then
+if not msg.Director then return "• هذا الامر يخص 〚 Myth,المنشئ,المدير 〛 فقط  \n" end
+redis:del(boss.."boyka:Name_Bots"..msg.chat_id_,"close")
+end
+if MsgText[1] == "تفعيل معاني الاسماء" then
+if not msg.Director then return "• هذا الامر يخص 〚 Myth,المنشئ,المدير 〛 فقط  \n" end
+redis:del(boss.."boyka:Name_Bots"..msg.chat_id_,"open")
+end
+if text and text:match("^معني (.*)$") and redis:del(boss.."boyka:Name_Bots"..msg.chat_id_) == "open" then
+local TextName = text:match("^معني (.*)$")
+gk = https.request('http://sonicx.ml/Api/Name.php?Name='..URL.escape(TextName)..'')
+br = JSON.decode(gk)
+send(msg.chat_id_, msg.id_,br.meaning)
 end
 
 if MsgText[1] == "اذاعه خاص" or MsgText[1] == "اذاعه خاص " then		
@@ -6921,17 +6949,19 @@ if msg.SudoUser and Text == Bot_Name and not Text2 then
 return sendMsg(msg.chat_id_,msg.id_,su[math.random(#su)])
 elseif not msg.SudoUser and Text== Bot_Name and not Text2 then  
 return sendMsg(msg.chat_id_,msg.id_,ss97[math.random(#ss97)])
-elseif not msg.SudoUser and Text==" لو خيروك" or Text == "لو خيروك" or Text == " لوخيروك" or Text == "لوخيروك" then
+elseif not msg.SudoUser and Text==" خيروك" then
 sendMsg(msg.chat_id_,msg.id_,ker[math.random(#ker)])
 elseif not msg.SudoUser and Text==" حروف" or Text == "حروف" or Text == " حر" or Text == "حر" then
 sendMsg(msg.chat_id_,msg.id_,hhh[math.random(#hhh)])
 
-elseif not msg.SudoUser and Text==" كت تويت" or Text == "كت تويت" or Text == " كت" or Text == "كت" then
+elseif not msg.SudoUser and Text==" تويت" or Text == "كت تويت" or Text == " كت" or Text == "كت" then
 sendMsg(msg.chat_id_,msg.id_,drok[math.random(#drok)])
 elseif not msg.SudoUser and Text==" مقالات" or Text == "مقالات" or Text == " 0" or Text == "0" then
 
 sendMsg(msg.chat_id_,msg.id_,mkl[math.random(#mkl)])
 elseif not msg.SudoUser and Text==" صراحه" or Text == "صراحه" then
+sendMsg(msg.chat_id_,msg.id_,srah[math.random(#srah)])
+
 elseif Text== "باسل" or Text== "بيسو" or Text== "بسله" then return sendMsg(msg.chat_id_,msg.id_,"[مطور السورس👑](T.ME/xb_0b)")
 elseif Text== "ايديي" or Text=="ايدي 🆔" then 
 GetUserID(msg.sender_user_id_,function(arg,data)
@@ -7507,6 +7537,11 @@ Boss = {
 "^(تفعيل ضافني)$",
 "^(تعطيل ضافني)$",
 "^(مين ضافني)$",
+ "^(اسمي)$",
+ "^(صورتي)$",
+ "^(افتاري)$",
+ "^(تعطيل معاني الاسماء)$",
+ "^(تفعيل معاني الاسماء)$",
 },
 iBoss = iBoss,
 dBoss = dBoss,
