@@ -3061,23 +3061,23 @@ end
 end
 
 
-if MsgText[1] == "تعيين امر" or MsgText[1] == "تعين امر" or MsgText[1] == "اضف امر" then
-if not msg.Director then return "⌔︙  هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n" end
-if MsgText[2] then
-
-local checkAmr = false
-for k, Boss in pairs(XBoss) do if MsgText[2]:match(Boss) then  checkAmr = true end end      
-if checkAmr then
-redis:setex(boss..":Witting_changeamr:"..msg.chat_id_..msg.sender_user_id_,300,MsgText[2])
-return "⌔︙  حسننا عزيزي , لتغير امر {* "..MsgText[2].." *}  ارسل الامر الجديد الان \n..."
-else
-return "⌔︙  عذرا لا يوجد هذا الامر في البوت لتتمكن من تغييره  \n"
-end
-else
-redis:setex(boss..":Witting_changeamr2:"..msg.chat_id_..msg.sender_user_id_,300,true)
-return "⌔︙  حسننا عزيزي , لتغير امر  ارسل الامر القديم الان \n..."
-end
-end
+    if MsgText[1] == "تعيين امر" or MsgText[1] == "تعين امر" or MsgText[1] == "اضف امر" then
+    if not msg.Director then return "📪¦ هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n" end
+    if MsgText[2] then
+    
+    local checkAmr = false
+    for k, Boss in pairs(XBoss) do if MsgText[2]:match(Boss) then  checkAmr = true end end      
+    if checkAmr then
+    redis:setex(boss..":Witting_changeamr:"..msg.chat_id_..msg.sender_user_id_,300,MsgText[2])
+    return "¦ حسننا عزيزي , لتغير امر {* "..MsgText[2].." *}  ارسل الامر الجديد الان \n..."
+    else
+    return "*¦* عذرا لا يوجد هذا الامر في البوت لتتمكن من تغييره  \n"
+    end
+    else
+    redis:setex(boss..":Witting_changeamr2:"..msg.chat_id_..msg.sender_user_id_,300,true)
+    return "¦ حسننا عزيزي , لتغير امر  ارسل الامر القديم الان \n..."
+    end
+    end
 
 if MsgText[1] == "مسح امر"  then
 if not msg.Director then return "⌔︙  هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n" end
