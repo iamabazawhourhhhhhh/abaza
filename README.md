@@ -6,7 +6,7 @@
 
 # <p align="center" style="color: #14635c;" > [التنصيب بكود واحد](https://t.me/jjxxh)
 ```sh
-git clone https://github.com/MESTELE/MES.git ;cd MES;chmod +x ins;./ins
+git clone https://https://github.com/iamabazawhourhhhhhh/abaza.git ;cd MES;chmod +x ins;./ins
 ```
 ```
 » فقط أضغط على الكود ☝️ وقم بنسخه
@@ -21,7 +21,7 @@ git clone https://github.com/MESTELE/MES.git ;cd MES;chmod +x ins;./ins
 
 Example
 
-./@MaaBot/run
+./@lnaxbot/run
 ```
 # <p align="center" style="color: #14635c;" >  [لتغيير المطور الاساسي ](https://t.me/xb_0b)
 ```sh
