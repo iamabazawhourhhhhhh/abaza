@@ -1876,11 +1876,11 @@ end
 
 if MsgText[1] == 'البايو' and msg.Admin then
   if msg.reply_id then 
-    function get(mr,EIKOei)
-      if not EIKOei.sender_user_id_ then
+    function get(mr,Jjxxh)
+      if not Jjxxh.sender_user_id_ then
         return false
       end
-      local infouser = https.request("https://api.telegram.org/bot"..Token.."/getChat?chat_id="..EIKOei.sender_user_id_)
+      local infouser = https.request("https://api.telegram.org/bot"..Token.."/getChat?chat_id="..Jjxxh.sender_user_id_)
       local info_ = JSON.decode(infouser)
       if info_.result.bio then
         biouser = info_.result.bio
