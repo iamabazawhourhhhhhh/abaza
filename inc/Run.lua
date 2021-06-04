@@ -107,8 +107,8 @@ local CmdRun = [[
 rm -f ./README.md
 rm -rf ./.git
 chmod +x ./run
-cp -a ../revorpro ../]]..BOT_User..[[ &&
-rm -fr ~/revorpro
+cp -a ../ABAZA ../]]..BOT_User..[[ &&
+rm -fr ~/ABAZA
 ../]]..BOT_User..[[/run
 ]]
 print(CmdRun)
