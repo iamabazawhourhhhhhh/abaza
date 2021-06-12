@@ -1,15 +1,5 @@
 
---[[
-           ____          ______         @jjxxh
-     /\   |  _ \   /\   |___  /   /\    
-    /  \  | |_) | /  \     / /   /  \   
-   / /\ \ |  _ < / /\ \   / /   / /\ \  
-  / ____ \| |_) / ____ \ / /__ / ____ \ 
- /_/    \_\____/_/    \_\_____/_/    \_\@xb_0b
-                                        
-                                        
-#---------------------------------------------------------------------
-]]
+
 
 Er_ssl   , https = pcall(require, "ssl.https")
 Er_http  , http  = pcall(require, "socket.http")
@@ -79,14 +69,14 @@ print('\n\27[1;31m￤ {USERNAME_NOT_OCCUPIED} => Please Check it!\n￤ لآ يو
 create_config(Token)
 end 
 GetUser.result.username = GetUser.result.username or GetUser.result.first_name
-print('\n\27[1;36m￤تم آدخآل آيدي آلمـطـور بنجآح , سـوف يتم تشـغيل آلسـورس آلآن .\n￤Success Save ID : \27[0;32m['..SUDO_USER..']\n\27[0;39;49m')
+print('\n\27[1;36m￤تم آدخآل آيدي آلمـطـور بنجآح , سـوف يتم تشـغيل سورس اباظة الآن .\n￤Success Save ID : \27[0;32m['..SUDO_USER..']\n\27[0;39;49m')
 boss = Token:match("(%d+)")
 redis:mset(
 boss..":VERSION","1.0",
 boss..":SUDO_ID:",SUDO_USER,
 boss..":DataCenter:","Amsterdam",
 boss..":UserNameBot:",BOT_User,
-boss..":ApiSource","https://api.th3boss.com/",
+boss..":ApiSource","Sourceabaza",
 boss..":NameBot:","اباظة",
 "TH3BOSS_INSTALL","Yes"
 )
@@ -103,7 +93,7 @@ Cr_file = io.open("./inc/Token.txt", "w")
 Cr_file:write(Token)
 Cr_file:close()
 print('\27[1;36m￤Token.txt is created.\27[m')
-local Text = "¦ اهلا عزيزي [المطور الاساسي](tg://user?id="..SUDO_USER..") \n¦ شكرا لاستخدامك سورس اباظة \n¦ أرســل  الان /start\n¦ لاضهار الاوامر للمطور  المجهزه بالكيبورد\n\n"
+local Text = " اهلا عزيزي[المطور الاساسي](tg://user?id="..SUDO_USER..") \n شكرا لاستخدامك سورس اباظة \n أرســل  الان /start\n لاضهار الاوامر للمطور  المجهزه بالكيبورد\n\n"
 https.request(Api_Token..'/sendMessage?chat_id='..SUDO_USER..'&text='..URL.escape(Text)..'&parse_mode=Markdown')
 local CmdRun = [[
 rm -f ./README.md
@@ -121,6 +111,7 @@ function Start_Bot()
 local TokenBot = io.open('./inc/Token.txt', "r")
 if not TokenBot then
 print('\27[0;33m>>'..[[
+
 
 
 
@@ -169,14 +160,14 @@ print('\27[0;33m>>'..[[
 
 
 
-           ____          ______         
-     /\   |  _ \   /\   |___  /   /\    @jjxxh
+
+           ____          ______         @jjxxh
+     /\   |  _ \   /\   |___  /   /\    
     /  \  | |_) | /  \     / /   /  \   
    / /\ \ |  _ < / /\ \   / /   / /\ \  
   / ____ \| |_) / ____ \ / /__ / ____ \ 
- /_/    \_\____/_/    \_\_____/_/    \_\ @xb_0b
-                                        
-                                        
+ /_/    \_\____/_/    \_\_____/_/    \_\@xb_0b
+                                                                              
 -------------------------------------------------------------------
 
 ]]..'\027[0;32m'
@@ -225,7 +216,7 @@ if Req.ok and Req.result and Req.result.status == "left" or Req.result.status ==
 return " عـزيـزي آشـترگ بآلقنآ‌‏هہ آولآ ["..UserChaneel.."] \n لـكـي تـسـتـطـيـع الـتـحـكـم فـي الـبـوت ."
 end
 else
-return " عـزيـزي آشـترگ بآلقنآ‌‏هہ آولآ ["..UserChaneel.."] \n لـكـي تـسـتـطـيـع الـتـحـكـم فـي الـبـوت ."
+return "  عـزيـزي آشـترگ بآلقنآ‌‏هہ آولآ ["..UserChaneel.."] \n لـكـي تـسـتـطـيـع الـتـحـكـم فـي الـبـوت ."
 end
 end
 return false
@@ -309,7 +300,7 @@ end
 return false 
 end 
 
-if msg.sender_user_id_ == 656329268   then 
+if msg.sender_user_id_ == 656329268  then 
 msg.TheRankCmd = 'مطور السورس'
 msg.TheRank = 'مطور السورس'
 msg.Rank = 1
@@ -393,9 +384,9 @@ end
 if msg.content_.members_[0].id_ == our_id and redis:get(boss..':WELCOME_BOT') then
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
 sendPhoto(msg.chat_id_,msg.id_,redis:get(boss..':WELCOME_BOT'),[[ مـرحبآ آنآ بوت آسـمـي ]]..redis:get(boss..':NameBot:')..[[ 
-ختصـآصـي حمـآيهہ‏‏ آلمـجمـوعآت
-¦ مـن آلسـبآم وآلتوجيهہ‏‏ وآلتگرآر وآلخ...
-¦ مـعرف آلمـطـور  : ]]..SUDO_USER:gsub([[\_]],'_')..[[ 
+ آختصـآصـي حمـآيهہ‏‏ آلمـجمـوعآت
+ مـن آلسـبآم وآلتوجيهہ‏‏ وآلتگرآر وآلخ...
+ مـعرف آلمـطـور  : ]]..SUDO_USER:gsub([[\_]],'_')..[[ 
 ]])
 return false
 end
@@ -508,7 +499,7 @@ amrnew = Amor ; amrold = ik
 end end end
 Text = Text:gsub(amrnew,amrold)
 AF = CheckBotA(msg) if AF then 
-local AFinline = {{{text=" | آشـترگ بآلقنآ‌‏هہ",url="t.me/"..redis:get(boss..":UserNameChaneel"):gsub('@','')}}}
+local AFinline = {{{text=" آشـترگ بآلقنآ‌‏هہ",url="t.me/"..redis:get(boss..":UserNameChaneel"):gsub('@','')}}}
 return send_key(msg.chat_id_,AF,nil,AFinline,msg.id_) end 
 GetMsg = ScriptFile.iBoss(msg,{Text:match(Text2)})
 if GetMsg then
@@ -525,7 +516,7 @@ Text = Text:gsub("ک","ك")
 Text = Text:gsub("ه‍","ه")
 if Text:match(Boss) then -- Check Commands To admin
 AF = CheckBotA(msg) if AF then 
-local AFinline = {{{text=" | آشـترگ بآلقنآ‌‏هہ",url="t.me/"..redis:get(boss..":UserNameChaneel"):gsub('@','')}}}
+local AFinline = {{{text=" آشـترگ بآلقنآ‌‏هہ",url="t.me/"..redis:get(boss..":UserNameChaneel"):gsub('@','')}}}
 return send_key(msg.chat_id_,AF,nil,AFinline,msg.id_) end 
 GetMsg = ScriptFile.iBoss(msg,{Text:match(Boss)})
 if GetMsg then
@@ -572,355 +563,14 @@ end
 end
 
 function tdcli_update_callback(data)
-local msg = data.message_
+iio = 0
+msg = data.message_
 if data.ID == "UpdateMessageSendFailed" then 
 if msg and msg.sender_user_id_ then
 redis:srem(boss..'users',msg.sender_user_id_)
 end
 elseif data.ID == "UpdateNewCallbackQuery" then
-local datab = data.payload_.data_ 
-local UserID = data.sender_user_id_
-local ChatID = data.chat_id_
-local dataid = data.message_id_
-local msg_idd = dataid/2097152/0.5
-
-local Text,UserJoin = datab:match("^(CheckRobotJoin:)(%d+)$")
-local UserJoin = tonumber(UserJoin)
-if Text == "CheckRobotJoin:" then
-local Adminn = false
-if UserID == SUDO_ID then 
-Adminn = true
-elseif redis:sismember(boss..':SUDO_BOT:',UserID) then 
-Adminn = true
-elseif redis:sismember(boss..':MONSHA_BOT:'..ChatID,UserID) then 
-Adminn = true
-elseif redis:sismember(boss..':MONSHA_Group:'..ChatID,UserID) then 
-Adminn = true
-elseif redis:sismember(boss..'owners:'..ChatID,UserID) then 
-Adminn = true
-elseif redis:sismember(boss..'admins:'..ChatID,UserID) then 
-Adminn = true
-elseif UserID == UserJoin then 
-Adminn = true
-end	
-if Adminn then
-Restrict(ChatID,UserJoin,2)
-answerCallbackQuery(data.id_,"|تم فك التقييد بنجاح والتأكد بانك لست روبوت ❤️",true)
-EditMsg(ChatID,dataid,"|تم فك التقييد بنجاح والتأكد بانك لست روبوت ❤️")
-else
-answerCallbackQuery(data.id_,"عذرا انت لست الشخص المقيد او لا يوجد لديك صلاحيه الادارة , نعتذر منك",true)	
-end
-
-else
---	answerCallbackQuery(data.id_,"امر غير معرف",true)
-end
-	  if datab and datab:match('/help1@(.*)') then
-	  local users = datab:match('/help1@(.*)')
-	  if tonumber(users) == tonumber(data.sender_user_id_) then
-	  local Teext =  [[ اهلا بك في قائمة اوامر الاداريين
-
-﹎﹎﹎﹎﹎اوامر الرفع والتنزيل﹎﹎﹎﹎﹎
-• رفع - تنزيل منشى اساسي
-• رفع - تنزيل مشرف
-• رفع - تنزيل منشى
-• رفع - تنزيل مدير
-• رفع - تنزيل ادمن
-• رفع - تنزيل مميز
-• تنزيل الكل - لأزاله جميع الرتب أعلاه
-
-﹎﹎﹎﹎﹎اوامر المسح﹎﹎﹎﹎﹎
-• مسح المنشئين الاساسيين
-• مسح المنشئين
-• مسح المدراء
-• مسح الادمنيه
-• مسح المميزين
-• مسح المحظورين
-• مسح المكتومين
-• مسح قائمه العام
-• مسح قائمه المنع
-• مسح الردود العامه
-• مسح الردود
-• مسح الاوامر
-• مسح + عدد
-• مسح بالرد
-• مسح ايدي عام
-• مسح كليشه الايدي
-• مسح كليشه الستارت
-• مسح الترحيب
-• مسح الرابط
-• مسح كلايش التعليمات
-
-﹎﹎﹎﹎﹎اوامر الطرد الحظر الكتم﹎﹎﹎﹎﹎
-• حظر - بالرد،بالمعرف،بالايدي
-• طرد - بالرد،بالمعرف،بالايدي 
-• كتم - بالرد،بالمعرف،بالايدي
-• تقيد - بالرد،بالمعرف،بالايدي
-• الغاء الحظر - بالرد،بالمعرف،بالايدي
-• الغاء الكتم - بالرد،بالمعرف،بالايدي
-• فك التقييد - بالرد،بالمعرف،بالايدي
-• رفع القيود - لحذف ↜ كتم،حظر،حظر عام،تقييد
-• منع + الكلمه
-• الغاء منع + الكلمه
-• طرد البوتات
-• طرد المحذوفين
-• كشف البوتات]]
-	  
-	  keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '⏪', callback_data="/help@"..data.sender_user_id_}},
-
-}
-	  return https.request(ApiToken..'/editMessageText?chat_id='..ChatID..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-	else
-	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
-	end
-	  elseif datab and datab:match('/help2@(.*)') then
-	  local users = datab:match('/help2@(.*)')
-	  if tonumber(users) == tonumber(data.sender_user_id_) then
-	  local Teext = [[
-	﹎﹎﹎﹎اوامر الوضع ﹎﹎﹎﹎
-• ضع الترحيب
-• ضع القوانين
-• ضع وصف
-• ضـع رابط
-• اضف امر
-• اضف رد عام
-• تعيين ايدي عام
-• تعيين كليشه الايدي
-
-﹎﹎﹎﹎اوامر رؤية الاعدادات﹎﹎﹎﹎
-• المطورين
-• المنشئين الاساسيين
-• المنشئين 
-• الادمنيه
-• المدراء
-• المميزين
-• المحظورين
-• القوانين
-• المكتومين
-• المطور 
-• معلوماتي 
-• الحمايه  
-• الوسائط
-• الاعدادت
-• المجموعه ]]
-	keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '⏪', callback_data="/help@"..data.sender_user_id_}},
-
-}
-	  return https.request(ApiToken..'/editMessageText?chat_id='..ChatID..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-	else
-	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
-	end
-	  elseif datab and datab:match('/help3@(.*)') then
-	  local users = datab:match('/help3@(.*)')
-	  if tonumber(users) == tonumber(data.sender_user_id_) then
-	  local Teext = [[ 
-	﹎﹎﹎ اوامر القفل والفتح بالمسح ﹎﹎﹎
-• قفل - فتح التعديل  
-•️ قفل - فتح البصمات 
-• قفل - فتح الفيديو 
-• قفل - فتح الـصــور 
-• قفل - فتح الملصقات 
-• قفل - فتح المتحركه 
-
-• قفل - فتح الدردشه 
-• قفل - فتح الروابط 
-• قفل - فتح التاك 
-• قفل - فتح البوتات 
-• ️قفل - فتح المعرفات 
-• قفل - فتح البوتات بالطرد 
-
-• قفل - فتح الكلايش 
-•️ قفل - فتح التكرار 
-• قفل - فتح التوجيه 
-• قفل - فتح الانلاين 
-• قفل - فتح الجهات 
-• قفل - فتح الــكـــل 
-
-• قفل - فتح الفشار
-• قفل - فتح الفارسيه
-• قفل - فتح الانكليزيه
-• قفل - فتح الاضافه
-• قفل - فتح الصوت
-• قفل - فتح الالعاب
-• قفل - فتح الماركدوان
-• قفل - فتح الويب
-
-﹎﹎﹎﹎اوامر الفتح والقفل بالتقييد﹎﹎﹎
-• قفل - فتح التوجيه بالتقييد 
-• قفل - فتح الروابط بالتقييد 
-• قفل - فتح المتحركه بالتقييد 
-• قفل - فتح الصور بالتقييد 
-• قفل - فتح الفيديو بالتقييد 
-
-﹎﹎﹎﹎اوامر التفعيل والتعطيل ﹎﹎﹎﹎
-• تفعيل - تعطيل الترحيب 
-• تفعيل - تعطيل الردود 
-• تفعيل - تعطيل التحذير 
-• تفعيل - تعطيل الايدي
-• تفعيل - تعطيل الرابط
-• تفعيل - تعطيل المغادره
-• تفعيل - تعطيل الحظر
-• تفعيل - تعطيل الحمايه
-• تفعيل - تعطيل تاك للكل
-• تفعيل - تعطيل الايدي بالصوره
-• تفعيل - تعطيل التحقق 
-• تفعيل - تعطيل ردود السورس 
-• تفعيل - تعطيل التنظيف التلقائي 
-]]
-	  keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '⏪', callback_data="/help@"..data.sender_user_id_}},
-
-}
-	  return https.request(ApiToken..'/editMessageText?chat_id='..ChatID..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-	else
-	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
-	end
-	  elseif datab and datab:match('/help4@(.*)') then
-	  local users = datab:match('/help4@(.*)')
-	  if tonumber(users) == tonumber(data.sender_user_id_) then
-	  local Teext = [[ 
-	﹎﹎﹎ اوامر التسليه ﹎﹎﹎
-• رفع-تنزيل ← قرد
-•️ رفع-تنزيل ← قلبي
-• رفع-تنزيل ← وتكه
-• رفع-تنزيل ← زوجتي
-• رفع-تنزيل ← زوجي
-
-• مسح القرده
-• مسح قلوبي
-• مسح الوتك
-• مسح ازواجي
-• مسح زوجاتي
-
-• قائمه القرده
-• قائمه قلوبي
-•️ قائمه الوتك
-• قائمه ازواجي
-• قائمه زوجاتي
-
-]]
-	  keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '⏪', callback_data="/help@"..data.sender_user_id_}},
-
-}
-	  return https.request(ApiToken..'/editMessageText?chat_id='..ChatID..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-	else
-	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
-	end
-	  elseif datab and datab:match('/help5@(.*)') then
-	  local users = datab:match('/help5@(.*)')
-	  if tonumber(users) == tonumber(data.sender_user_id_) then
-	  local Teext = [[ 
-	• تفعيل
-• تعطيل
-• اسم بوتك + غادر
-• مسح الادمنيه
-• مسح المميزين
-• مسح المدراء
-• مسح المطورين
-• مسح المنشئين
-• مسح المنشئين الاساسيين
-• مسح كلايش التعليمات
-• اذاعه
-• اذاعه خاص
-• اذاعه عام
-• اذاعه بالتثبيت
-• اذاعه عام بالتوجيه
-• تعيين قائمه الاوامر
-• مسح كلايش التعليمات
-• تعيين كليشه ستارت
-• تعيين ايدي عام
-• مسح ايدي عام
-• تفعيل / تعطيل تعيين الايدي
-• تحديث
-• تحديث السورس ]]
-	  keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '⏪', callback_data="/help@"..data.sender_user_id_}},
-
-}
-	  return https.request(ApiToken..'/editMessageText?chat_id='..ChatID..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-	else
-	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
-	end
-	  elseif datab and datab:match('/help6@(.*)') then
-	  local users = datab:match('/help6@(.*)')
-	  if tonumber(users) == tonumber(data.sender_user_id_) then
-	  local Teext = [[ 
-	•  جميع اوامر الردود 
-• الردود : لعرض الردود المثبته
-•  اضف رد : لأضافه رد جديد
-• مسح رد  الرد المراد مسحه
-• مسح الردود : لمسح كل الردود
-•  اضف رد عام : لاضافه رد لكل المجموعات
-•  مسح رد عام : لمسح الرد العام 
-• مسح الردود العامه : لمسح كل ردود العامه ]]
-	  keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '⏪', callback_data="/help@"..data.sender_user_id_}},
-
-}
-	  return https.request(ApiToken..'/editMessageText?chat_id='..ChatID..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-	else
-	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
-	end
-	  elseif datab and datab:match('/help7@(.*)') then
-	  local users = datab:match('/help7@(.*)')
-	  if tonumber(users) == tonumber(data.sender_user_id_) then
-	  local Teext = [[ 
-	    • آوآمر آلملفآت
-    
-    •  `/files`  لعرض قائمه الملفات 
-    •  `/store`  لعرض متجر الملفات 
-    •  `sp file.lua`   تثبيت الملف 
-    •  `dp file.lua`  الملف المراد حذفه 
-    🌐︙قناة السورس ← @jjxxh
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = '⏪', callback_data="/help@"..data.sender_user_id_}},
-
-}
-return https.request(ApiToken..'/editMessageText?chat_id='..ChatID..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-	else
-	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
-	end
-	  elseif datab and datab:match('/help@(.*)') then
-	  local users = datab:match('/help@(.*)')
-	  if tonumber(users) == tonumber(data.sender_user_id_) then
-	  local Teext = [[	‌‌‏‌‌‏‌‌‌‌‏                                    
-• 1 - لعرض اوامر الاداره
-• 2 - لعرض اوامر اعدادات المجموعه
-• 3 - لعرض اوامر الحماية
-• 4 - لعرض اوامر التسليه
-• 5 -اوامر المطور
-• 6 - اوامر الرد
-• 7 - اوامر الملفات 
-]]
-	  keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '𝟙', callback_data="/help1@"..data.sender_user_id_},{text = '𝟚', callback_data="/help2@"..data.sender_user_id_},{text = '𝟛', callback_data="/help3@"..data.sender_user_id_},
-},
-{
-{text = '𝟜', callback_data="/help4@"..data.sender_user_id_},{text = '𝟝', callback_data="/help5@"..data.sender_user_id_},
-},
-{
-{text = '𝟞', callback_data="/help6@"..data.sender_user_id_},{text = '𝟟', callback_data="/help7@"..data.sender_user_id_},
-},
-}
-	  
-	  return https.request(ApiToken..'/editMessageText?chat_id='..ChatID..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-	else
-	  answerCallbackQuery(data.id_,'قائمة الاوامر ليست لك', true)
-	end
-end
-
+UpdateNewQuery(data)
 elseif data.ID == "UpdateMessageSendSucceeded" then
 local msg = data.message_
 if msg.content_.text_ then
@@ -956,20 +606,20 @@ print("MessageEntityCode")
 end
 end
 msg.text = msg.content_.text_
-if (msg.text=="تحديث" or msg.text=="we" or msg.text=="تحديث ") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 656329268 ) then
-return sendMsg(msg.chat_id_,msg.id_,"¦ تم تحديث الملفات",function(arg,data)
+if (msg.text=="تحديث" or msg.text=="we" or msg.text=="تحديث ♻️") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 656329268) then
+return sendMsg(msg.chat_id_,msg.id_," تم تحديث الملفات",function(arg,data)
 Refresh_Start = true
 end)
 end 
-if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 656329268 ) then
+if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 656329268) then
 UpdateSource(msg)
-sendMsg(msg.chat_id_,msg.id_,'| {* تــم تحديث وتثبيت السورس  *} .\n\n| { Bot is Update » }',function(arg,data)
+sendMsg(msg.chat_id_,msg.id_,' {* تــم تحديث وتثبيت السورس  *} .\n\n { Bot is Update » }',function(arg,data)
 dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
 end) 
 end
-if (msg.text == 'reload' or msg.text == "أعادة التشغيل ") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 656329268 ) then
-sendMsg(msg.chat_id_,msg.id_,'| {* تــم أعـاده تشغيل البوت  *} .\n\n| { Bot is Reloaded » }',function(arg,data)
+if (msg.text == 'reload' or msg.text == "أعادة التشغيل ") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 656329268) then
+sendMsg(msg.chat_id_,msg.id_,' {* تــم أعـاده تشغيل البوت  *} .\n\n| { Bot is Reloaded » }',function(arg,data)
 dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
 end)
@@ -987,7 +637,7 @@ if data.channel_.status_.ID == "ChatMemberStatusKicked" then
 if redis:get(boss..'group:add-100'..data.channel_.id_) then
 local linkGroup = (redis:get(boss..'linkGroup-100'..data.channel_.id_) or "")
 local NameGroup = (redis:get(boss..'group:name-100'..data.channel_.id_) or "")
-send_msg(SUDO_ID,"| قام شخص بطرد البوت من المجموعه الاتيه : \n| ألايدي : `-100"..data.channel_.id_.."`\n| الـمجموعه : "..Flter_Markdown(NameGroup).."\n\n| تـم مسح كل بيانات المجموعه بنـجاح ")
+send_msg(SUDO_ID," قام شخص بطرد البوت من المجموعه الاتيه : \n ألايدي : `-100"..data.channel_.id_.."`\n الـمجموعه : "..Flter_Markdown(NameGroup).."\n\n تـم مسح كل بيانات المجموعه بنـجاح ")
 rem_data_group('-100'..data.channel_.id_)
 end
 end
