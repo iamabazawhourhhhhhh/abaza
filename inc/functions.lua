@@ -1001,7 +1001,7 @@ function UpdateSource(msg,edit)
 if edit then EditMsg(msg.chat_id_,msg.id_,'10% - |█          |') end
 if edit then EditMsg(msg.chat_id_,msg.id_,'20% - |███         |') end
 download_file('https://raw.githubusercontent.com/iamabazawhourhhhhhh/abaza/master/inc/Run.lua','./inc/Run.lua')
-if edit then EditMsg(msg.chat_id_,msg.id_,'40% - |█████ @xb_0b      |') end
+if edit then EditMsg(msg.chat_id_,msg.id_,'40% - |█████       |') end
 download_file('https://raw.githubusercontent.com/iamabazawhourhhhhhh/abaza/master/inc/locks.lua','./inc/locks.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'60% - |███████     |') end
 download_file('https://raw.githubusercontent.com/iamabazawhourhhhhhh/abaza/master/inc/Script.lua','./inc/Script.lua')
