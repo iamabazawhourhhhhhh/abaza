@@ -2732,6 +2732,18 @@ end,{chat_id_=msg.chat_id_,id_=msg.id_,TheRank=msg.TheRank})
 return false
 end
 
+
+if msg.Director then
+if MsgText[1] == 'تفعيل ضافني' then 
+redis:del(boss..":Added:Me:"..msg.chat_id_)  
+sendMsg(msg.chat_id_,msg.id_,'✶تم تفعيل امر مين ضافني')
+end
+if MsgText[1] == 'تعطيل ضافني' then  
+redis:set(boss..":Added:Me:"..msg.chat_id_,true)    
+sendMsg(msg.chat_id_,msg.id_,'✶تم تعطيل امر مين ضافني')
+end
+end
+
 if MsgText[1] == "تفعيل الردود العشوائيه" 	then return unlock_replayRn(msg) end
 if MsgText[1] == "تفعيل الردود" 	then return unlock_replay(msg) end
 if MsgText[1] == "تفعيل الايدي" 	then return unlock_ID(msg) end
@@ -3868,20 +3880,25 @@ if MsgText[1] == 'اصدار السورس' or MsgText[1] == 'الاصدار' the
 return '- اصدار سورس اباظة : *v'..version..'* '
 end
 
-if MsgText[1] == 'تحديث السورس' then
-if not msg.SudoBase then return "- هذا الامر يخص {المطور الاساسي} فقط  \n" end
-local GetVerison = https.request('https://raw.githubusercontent.com/iamabazawhourhhhhhh/iamabazawhourhhhhhh.github.io/blob/main/GetVersion.txt') or "0"
+if MsgText[1] == 'اصدار السورس' or MsgText[1] == 'الاصدار' then
+return 'ঌ اصدار سورس هيل*v'..version..'* \n'
+end
+
+if (MsgText[1] == 'تحديث السورس' or MsgText[1] == 'تحديث السورس ™') then
+if not msg.SudoBase then return "✦¹  هذا الامر يخص {المطور الاساسي} فقط  \n" end
+local GetVerison = https.request('https://raw.githubusercontent.com/iamabazawhourhhhhhh/iamabazawhourhhhhhh.github.io/main/GetVersion.txt') or "0"
 GetVerison = GetVerison:gsub("\n",""):gsub(" ","")
 if GetVerison > version then
 UpdateSourceStart = true
-sendMsg(msg.chat_id_,msg.id_,'- يوجد تحديث جديد الان \n- جاري تنزيل وتثبيت التحديث  ...')
+sendMsg(msg.chat_id_,msg.id_,'✦¹  يوجد تحديث جديد الان \n✦¹  جاري تنزيل وتثبيت التحديث  ...')
 redis:set(boss..":VERSION",GetVerison)
 return false
 else
-return "- الاصدار الحالي : *v"..version.."* \n- لديـك احدث اصدار "
+return "ঌ الاصدار الحالي : *v"..version.."* \n✦¹  لديـك احدث اصدار\n - [ABAZA](t.me/jjxxh)"
 end
 return false
 end
+
 
 
 if MsgText[1] == 'نسخه احتياطيه للمجموعات' then
@@ -4393,6 +4410,30 @@ end,{msg=msg})
 return false
 end
 
+
+if MsgText[1]== 'مين ضافني' then
+if not redis:get(boss..":Added:Me:"..msg.chat_id_) then
+tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
+if da and da.status_.ID == "ChatMemberStatusCreator" then
+sendMsg(msg.chat_id_,msg.id_,'*✶انت منشئ المجموعه *') 
+return false
+end
+local Added_Me = redis:get(boss..":Added:Me:Who:Added:Me"..msg.chat_id_..':'..msg.sender_user_id_)
+if Added_Me then 
+tdcli_function ({ID = "GetUser",user_id_ = Added_Me},function(extra,result,success)
+local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
+Text = '*✶الشخص الذي قام باضافتك هو * '..Name
+sendMsg(msg.chat_id_,msg.id_,Text) 
+end,nil)
+else
+sendMsg(msg.chat_id_,msg.id_,'*✶انت دخلت عبر الرابط*') 
+end
+end,nil)
+else
+sendMsg(msg.chat_id_,msg.id_,'*✶امر مين ضافني تم تعطيله من قبل المدراء *') 
+end
+end
+
 if MsgText[1]== 'م3' then
 if not msg.Admin then return "- هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n" end
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
@@ -4616,8 +4657,8 @@ return send_inline(msg.chat_id_,text,inline,msg.id_)
 end
 
 if MsgText[1] == "متجر الملفات" or MsgText[1]:lower() == "/store"  then
-if not msg.SudoBase then return "- هذا الامر يخص {المطور الاساسي} فقط  \n" end
-local Get_Files, res = https.request("https://raw.githubusercontent.com/iamabazawhourhhhhhh/iamabazawhourhhhhhh.github.io/blob/main/GetFiles.json")
+if not msg.SudoBase then return "✦¹  هذا الامر يخص {المطور الاساسي} فقط  \n" end
+local Get_Files, res = https.request("https://raw.githubusercontent.com/iamabazawhourhhhhhh/iamabazawhourhhhhhh.github.io/main/GetFiles.json")
 print(Get_Files)
 print(res)
 if res == 200 then
@@ -4630,34 +4671,34 @@ for name,Course in pairs(res.Plugins) do
 local Check_File_is_Found = io.open("plugins/"..name,"r")
 if Check_File_is_Found then
 io.close(Check_File_is_Found)
-CeckFile = "{}"
+CeckFile = "{✔}"
 else
-CeckFile = "{}"
+CeckFile = "{✖️}"
 end
 NumFile = NumFile + 1
-TextS = TextS..NumFile.."- `"..name..'` » '..CeckFile..'\nl*»»* [{تفاصيل اكثر}]('..Course..")\n------------------------------------\n"
+TextS = TextS..NumFile.."- `"..name..'` ⇠ '..CeckFile..'\nl*⇠⇠* [{تفاصيل اكثر}]('..Course..")\n------------------------------------\n"
 end
 return TextS..TextE
 else
-return "- اوبس , هناك خطا في مصفوفه الجيسون راسل مطور السورس ليتمكن من حل المشكله في اسرع وقت ممكن.!"
+return " اوبس , هناك خطأ في مصفوفه الجيسون راسل مطور السورس ليتمكن من حل المشكله في اسرع وقت ممكن.!"
 end
 else
-return "- اوبس , لا يوجد اتصال في الـapi راسل المطور ليتم حل المشكله في اسرع وقت ممكن.!"
+return " اوبس , لا يوجد اتصال في الـapi راسل المطور ليتم حل المشكله في اسرع وقت ممكن.!"
 end
 return false
 end
 
 if MsgText[1]:lower() == "sp" and MsgText[2] then
-if not msg.SudoBase then return"- هذا الامر يخص {المطور الاساسي} فقط  \n" end
+if not msg.SudoBase then return"✦¹  هذا الامر يخص {المطور الاساسي} فقط  \n" end
 local FileName = MsgText[2]:lower()
 local Check_File_is_Found = io.open("plugins/"..FileName,"r")
 if Check_File_is_Found then
 io.close(Check_File_is_Found)
-TText = "- الملف موجود بالفعل \n- تم تحديث الملف "
+TText = " الملف موجود بالفعل \nঌ تم تحديث الملف  \n"
 else
-TText = "- تم تثبيت وتفعيل الملف بنجاح "
+TText = "ঌ تم تثبيت وتفعيل الملف بنجاح \n"
 end
-local Get_Files, res = https.request("https://raw.githubusercontent.com/iambosswhourhhhhhh/abaza/main/plugins/"..FileName)
+local Get_Files, res = https.request("https://raw.githubusercontent.com/iamabazawhourhhhhhh/nothinghereiamsorry/main/plugins/"..FileName)
 if res == 200 then
 print("DONLOADING_FROM_URL: "..FileName)
 local FileD = io.open("plugins/"..FileName,'w+')
@@ -4667,20 +4708,20 @@ Start_Bot()
 
 return TText
 else
-return "- لا يوجد ملف بهذا الاسم في المتجر "
+return " لا يوجد ملف بهذا الاسم في المتجر \n"
 end
 end
 
 if MsgText[1]:lower() == "dp" and MsgText[2] then
-if not msg.SudoBase then return"- هذا الامر يخص {المطور الاساسي} فقط  \n" end
+if not msg.SudoBase then return"✦¹  هذا الامر يخص {المطور الاساسي} فقط  \n" end
 local FileName = MsgText[2]:lower()
 local Check_File_is_Found = io.open("plugins/"..FileName,"r")
 if Check_File_is_Found then
 io.close(Check_File_is_Found)
 os.execute("rm -fr plugins/"..FileName)
-TText = "- الملف ~⪼ ["..FileName.."] \n- تم حذفه بنجاح "
+TText = " الملف ~⪼ ["..FileName.."] \nঌ تم حذفه بنجاح  \n"
 else
-TText = "- الملف ~⪼ ["..FileName.."] \n- بالفعل محذوف "
+TText = " الملف ~⪼ ["..FileName.."] \nঌ بالفعل محذوف  \n"
 end
 Start_Bot()
 return TText
@@ -7952,6 +7993,9 @@ Boss = {
 "^(تفعيل التحقق)$",
 "^(تفعيل البوت خدمي)$",
 "^(تعطيل البوت خدمي)$",
+"^(تفعيل ضافني)$",
+"^(تعطيل ضافني)$",
+"^(مين ضافني)$",
 "^(تفعيل التواصل)$",
 "^(تعطيل التواصل)$",
 "^(قفل الكل)$",
