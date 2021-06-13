@@ -3870,7 +3870,7 @@ end
 
 if MsgText[1] == 'تحديث السورس' then
 if not msg.SudoBase then return "- هذا الامر يخص {المطور الاساسي} فقط  \n" end
-local GetVerison = https.request('https://raw.githubusercontent.com/iambosswhourhhhhhh/iambosswhourhhhhhh.github.io/main/GetVersion.txt') or "0"
+local GetVerison = https.request('https://raw.githubusercontent.com/iamabazawhourhhhhhh/iamabazawhourhhhhhh.github.io/blob/main/GetVersion.txt') or "0"
 GetVerison = GetVerison:gsub("\n",""):gsub(" ","")
 if GetVerison > version then
 UpdateSourceStart = true
@@ -4617,7 +4617,7 @@ end
 
 if MsgText[1] == "متجر الملفات" or MsgText[1]:lower() == "/store"  then
 if not msg.SudoBase then return "- هذا الامر يخص {المطور الاساسي} فقط  \n" end
-local Get_Files, res = https.request("https://raw.githubusercontent.com/iambosswhourhhhhhh/iambosswhourhhhhhh.github.io/main/GetFiles.json")
+local Get_Files, res = https.request("https://raw.githubusercontent.com/iamabazawhourhhhhhh/iamabazawhourhhhhhh.github.io/blob/main/GetFiles.json")
 print(Get_Files)
 print(res)
 if res == 200 then
