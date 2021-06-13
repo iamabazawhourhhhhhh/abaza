@@ -316,6 +316,10 @@ elseif msg.GroupActive and redis:sismember(boss..':MONSHA_Group:'..msg.chat_id_,
 msg.TheRankCmd = redis:get(boss..":RtbaNew3:"..msg.chat_id_) or 'منشئ اساسي'
 msg.TheRank = redis:get(boss..":RtbaNew3:"..msg.chat_id_) or 'منشئ اساسي '
 msg.Rank = 11
+elseif msg.GroupActive and redis:sismember(boss..':Malk_Group:'..msg.chat_id_,msg.sender_user_id_) then 
+msg.TheRankCmd = redis:get(boss..":RtbaNew8:"..msg.chat_id_) or 'المالك'
+msg.TheRank = redis:get(boss..":RtbaNew8:"..msg.chat_id_) or 'مالك '
+msg.Rank = 8
 elseif msg.GroupActive and redis:sismember(boss..':MONSHA_BOT:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRankCmd = redis:get(boss..":RtbaNew4:"..msg.chat_id_) or 'المنشىء'
 msg.TheRank = redis:get(boss..":RtbaNew4:"..msg.chat_id_) or 'المنشىء '
@@ -341,7 +345,7 @@ end
 if msg.Rank == 1 then
 msg.SudoBase = true
 end
-if msg.Rank == 1 or msg.Rank == 2 or msg.Rank == 11 then
+if msg.Rank == 1 or msg.Rank == 2 or msg.Rank == 11 or msg.Rank == 8 then
 msg.SuperCreator = true
 msg.Creator = true
 msg.Admin = true
