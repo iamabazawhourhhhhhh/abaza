@@ -594,7 +594,16 @@ return SendMsgInline(msg)
 end
 
 
-
+function RandomText()
+local Cominnt = {
+'صورتك تجنن💕',
+"القمر طلع💙",
+"ما اجملك💕",
+"اجمل ما رأت عيني😍",
+"صورتك مش عجباني😕",
+}
+return Cominnt[math.random(#Cominnt)] 
+end
 
 
 function CheckUserAdmin(msg)
