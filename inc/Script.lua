@@ -4610,7 +4610,7 @@ local text = " 𝙒𝙀𝙇𝘾𝙊𝙈𝙀 𝙏𝙊 𝙎𝙊𝙐𝙍𝘾𝙀 �
 local inline = {
 {{text = '𝙎𝙊𝙐𝙍𝘾𝙀 𝘼𝘽𝘼𝙕𝘼 ⩫ ',url="https://t.me/jjxxh"}},
 {{text = '-𝘿𝙀𝙑   👑',url="https://t.me/xb_1b"}},
-{{text = '-𝙏𝙒𝘼𝙎𝙊𝙇 💬 ',url="https://t.me/bossxbot"}},
+{{text = '-𝙏𝙒𝘼𝙎𝙊𝙇 💬 ',url="https://t.me/Abazaxbot"}},
 }   
 return send_inline(msg.chat_id_,text,inline,msg.id_)
 end
