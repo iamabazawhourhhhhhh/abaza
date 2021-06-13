@@ -1009,13 +1009,13 @@ end
 function UpdateSource(msg,edit)
 if edit then EditMsg(msg.chat_id_,msg.id_,'10% - |█    @xb_1b     |') end
 if edit then EditMsg(msg.chat_id_,msg.id_,'20% - |███  @xb_0b       |') end
-download_file('https://raw.githubusercontent.com/iamabazawhourhhhhhh/nothinghereiamsorry/main/inc/Run.lua','./inc/Run.lua')
+download_file('https://raw.githubusercontent.com/iamabazawhourhhhhhh/abaza/main/inc/Run.lua','./inc/Run.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'40% - |█████  @xb_0b     |') end
-download_file('https://raw.githubusercontent.com/iamabazawhourhhhhhh/nothinghereiamsorry/main/inc/locks.lua','./inc/locks.lua')
+download_file('https://raw.githubusercontent.com/iamabazawhourhhhhhh/abaza/main/inc/locks.lua','./inc/locks.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'60% - |███████  @xb_0b   |') end
-download_file('https://raw.githubusercontent.com/iamabazawhourhhhhhh/nothinghereiamsorry/main/inc/Script.lua','./inc/Script.lua')
+download_file('https://raw.githubusercontent.com/iamabazawhourhhhhhh/abaza/main/inc/Script.lua','./inc/Script.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'80% - |█████████ @xb_0b  |') end
-download_file('https://raw.githubusercontent.com/iamabazawhourhhhhhh/nothinghereiamsorry/main/inc/functions.lua','./inc/functions.lua')
+download_file('https://raw.githubusercontent.com/iamabazawhourhhhhhh/abaza/main/inc/functions.lua','./inc/functions.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'100% - |█████████████|\n\n تم تحديث السورس الى اصدار *v'..redis:get(boss..":VERSION")..'*\n تم اعاده تشغيل السورس بنجاح\n - @jjxxh') end
 if edit then dofile("./inc/Run.lua") end
 print("Update Source And Reload ~ ./inc/Run.lua")
