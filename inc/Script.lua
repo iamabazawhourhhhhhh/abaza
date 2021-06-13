@@ -4657,8 +4657,8 @@ return send_inline(msg.chat_id_,text,inline,msg.id_)
 end
 
 if MsgText[1] == "متجر الملفات" or MsgText[1]:lower() == "/store"  then
-if not msg.SudoBase then return "✦¹  هذا الامر يخص {المطور الاساسي} فقط  \n" end
-local Get_Files, res = https.request("https://raw.githubusercontent.com/iamabazawhourhhhhhh/iamabazawhourhhhhhh.github.io/main/GetFiles.json")
+if not msg.SudoBase then return "- هذا الامر يخص {المطور الاساسي} فقط  \n" end
+local Get_Files, res = https.request("https://raw.githubusercontent.com/iamabazawhourhhhhhh/iamabazawhourhhhhhh.github.io/blob/main/GetFiles.json")
 print(Get_Files)
 print(res)
 if res == 200 then
@@ -4676,14 +4676,14 @@ else
 CeckFile = "{✖️}"
 end
 NumFile = NumFile + 1
-TextS = TextS..NumFile.."- `"..name..'` ⇠ '..CeckFile..'\nl*⇠⇠* [{تفاصيل اكثر}]('..Course..")\n------------------------------------\n"
+TextS = TextS..NumFile.."- `"..name..'` » '..CeckFile..'\nl*»»* [{تفاصيل اكثر}]('..Course..")\n------------------------------------\n"
 end
 return TextS..TextE
 else
-return " اوبس , هناك خطأ في مصفوفه الجيسون راسل مطور السورس ليتمكن من حل المشكله في اسرع وقت ممكن.!"
+return "- اوبس , هناك خطا في مصفوفه الجيسون راسل مطور السورس ليتمكن من حل المشكله في اسرع وقت ممكن.!"
 end
 else
-return " اوبس , لا يوجد اتصال في الـapi راسل المطور ليتم حل المشكله في اسرع وقت ممكن.!"
+return "- اوبس , لا يوجد اتصال في الـapi راسل المطور ليتم حل المشكله في اسرع وقت ممكن.!"
 end
 return false
 end
@@ -4698,7 +4698,7 @@ TText = " الملف موجود بالفعل \nঌ تم تحديث الملف  \
 else
 TText = "ঌ تم تثبيت وتفعيل الملف بنجاح \n"
 end
-local Get_Files, res = https.request("https://raw.githubusercontent.com/iamabazawhourhhhhhh/nothinghereiamsorry/main/plugins/"..FileName)
+local Get_Files, res = https.request("https://raw.githubusercontent.com/iamabazawhourhhhhhh/abaza/main/plugins/"..FileName)
 if res == 200 then
 print("DONLOADING_FROM_URL: "..FileName)
 local FileD = io.open("plugins/"..FileName,'w+')
