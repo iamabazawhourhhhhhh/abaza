@@ -38,7 +38,7 @@ if redis:get(boss..'lock_id'..msg.chat_id_) then
 GetUserID(msg.sender_user_id_,function(arg,data)
 
 local msgs = redis:get(boss..'msgs:'..msg.sender_user_id_..':'..msg.chat_id_) or 1
-if data.username_ then UserNameID = "• 𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀 ➤@"..data.username_.." ⊰•\n" else UserNameID = "" end
+if data.username_ then UserNameID = "• 𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀 ➤@"..data.username_.." •\n" else UserNameID = "" end
 if data.username_ then UserNameID1 = "@"..data.username_ else UserNameID1 = "لا يوجد" end
 if data.last_name_ then Name = data.first_name_ .." "..data.last_name_ else Name = data.first_name_ end
 local Namei = FlterName(data,20)
@@ -56,12 +56,12 @@ end
 GetPhotoUser(data.id_,function(arg,data)
 local edited = (redis:get(boss..':edited:'..arg.chat_id_..':'..arg.sender_user_id_) or 0)
 
-local KleshaID = '»» '..RandomText()..'\n\n👤꒐ اســمـك •⊱ { '..arg.Namei..' } ⊰•\n'
-..'- ايديــك •⊱ {'..arg.sender_user_id_..'} ⊰•\n'
+local KleshaID = '• 𝙉𝘼𝙈𝙀 ➤  '..arg.Namei..'  ⊰•\n'
+..'• 𝙄𝘿 ➤{'..arg.sender_user_id_..' •\n'
 ..arg.UserNameID
-..'- رتبتـــك •⊱ '..arg.TheRank..' ⊰•\n'
-..'⭐️꒐ تفاعـلك •⊱ '..Get_Ttl(arg.msgs)..'⊰•\n'
-..'- رسائلك •⊱ {'..arg.msgs..'} ⊰•\n➖'
+..'• 𝙎𝙏𝘼𝙏𝙎 ➤'..arg.TheRank..' •\n'
+..'• 𝗠𝗦𝗚  ➤ '..arg.msgs..' •\n'
+..'• 𝘽𝙄𝙊  ➤ '..biouser..' •\n'
 local Kleshaidinfo = redis:get(boss..":infoiduser_public:"..arg.chat_id_) or redis:get(boss..":infoiduser")  
 
 if Kleshaidinfo then 
