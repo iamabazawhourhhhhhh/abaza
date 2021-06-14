@@ -2268,8 +2268,6 @@ end
 
 if MsgText[1] == "الادارين" or MsgText[1] == "الاداريين"   or MsgText[1] == "المشرفين"  or MsgText[1] == "الاداريين" or MsgText[1] == "الادارين" then   
 if not msg.Admin then return "- هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n" end
-if not redis:get(boss.."lock_takkl"..msg.chat_id_) then  return "-  الامر معطل من قبل الادراة" end 
-if redis:get(boss.."chat:tagall"..msg.chat_id_) then  return "-  يمكنك عمل تاك للكل كل *5 دقائق* فقط" end 
 redis:setex(boss..'chat:tagall'..msg.chat_id_,300,true)
 return TagAll(msg) 
 end
@@ -7676,6 +7674,7 @@ Boss = {
 "^(تاك للكل) (ل %d+)$",
 "^(الادارين)$",
 "^(الاداريين)$",
+"^(المشرفين)$",
 "^(الاداريين)$",
 "^(الادارين)$",
 
