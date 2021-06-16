@@ -3660,9 +3660,10 @@ return send_msg(msg.chat_id_,redis:get(boss..":TEXT_SUDO") or SUDO_NAME,msg.id_)
 end,nil)
 end
 
-if MsgText[1] == "اذاعه بالتثبيت" then
-if not msg.SudoUser then return"- هذا الامر يخص {المطور} فقط  \n" end
-return "- حسننا الان ارسل رساله ليتم اذاعتها بالتثبيت " 
+if MsgText[1] == "اذاعه بالتثبيت"  or MsgText[1] =="اذاعه بالتثبيت " then
+if not msg.SudoUser then return"✦¹  هذا الامر يخص {المطور} فقط  \n" end
+redis:setex(boss..':prod_pin:'..msg.chat_id_..msg.sender_user_id_,300, true) 
+return "✦¹  حسننا الان ارسل رساله ليتم اذاعتها بالتثبيت  \n" 
 end
 
 if MsgText[1] == "اذاعه عام بالتوجيه"  then
@@ -5812,7 +5813,7 @@ if redis:get(boss..':prod_pin:'..msg.chat_id_..msg.sender_user_id_) then
 redis:del(boss..':prod_pin:'..msg.chat_id_..msg.sender_user_id_)
 local groups = redis:smembers(boss..'group:ids')
 if #groups >= 300 then
-sendMsg(msg.chat_id_,msg.id_,'- اهلا عزيزي المطور \n- جاري نشر الرساله للمجموعات ...')			
+sendMsg(msg.chat_id_,msg.id_,' اهلا عزيزي المطور \nঌ جاري نشر الرساله للمجموعات ...')			
 end
 local NumGroupsDel = 0
 for i = 1, #groups do 
@@ -5820,7 +5821,7 @@ sendMsg(groups[i],0,Flter_Markdown(msg.text),function(arg,data)
 if data.chat_id_ then redis:setex(boss..":propin"..data.chat_id_,100,data.content_.text_) end
 end)
 end
-sendMsg(msg.chat_id_,msg.id_,'- عدد المجموعات •⊱ { *'..#groups..'*  } ⊰•\n- تـم الاذاعه بالتثبيت بنجاح ')
+sendMsg(msg.chat_id_,msg.id_,'📑 عدد المجموعات •⊱ { *'..#groups..'*  } ⊰•\n تـم الاذاعه بالتثبيت بنجاح ')
 end 
 
 if redis:get(boss..'fwd:groups'..msg.sender_user_id_) then ---- استقبال رساله الاذاعه خاص
