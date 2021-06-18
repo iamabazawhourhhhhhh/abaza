@@ -4749,6 +4749,16 @@ tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, o
 end
 end
 
+if MsgText[1] == "تفعيل الاشتراك الاجباري" then
+if not msg.SudoBase then return"- هذا الامر يخص {المطور الاساسي} فقط  \n" end
+if redis:get(boss..":UserNameChaneel") then
+return "- اهلا عزيزي المطور \n- الاشتراك بالتاكيد مفعل"
+else
+redis:setex(boss..":ForceSub:"..msg.sender_user_id_,350,true)
+return "- مرحبا بـك في نظام الاشتراك الاجباري\n- الان ارسل معرف قـنـاتـك"
+end
+end
+
 if MsgText[1] == "تعطيل الاشتراك الاجباري" then
 if not msg.SudoBase then return"- هذا الامر يخص {المطور الاساسي} فقط  \n" end
 local SubDel = redis:del(boss..":UserNameChaneel")
