@@ -7439,6 +7439,29 @@ local bott = {
 "اسمي ["..Bot_Name.."] .",
 }
 
+local su = {
+  "اهلا بمطوري الحلو 🔥😍.",
+  "ارحب يالمطور💕.",
+  "هلا .",
+  "عيون ["..Bot_Name.."] .",
+  "ارحب ."
+}
+  local ss97 = {
+  "روح [".. Bot_Name.."]💕.",
+"امرني يعيني ♥.",
+  "امرني .","نعم","هاه.","شفيه",
+  "لبييه .","عيوني لك.","امرني يا حلو.",
+  "ها يا روحي.","هلا .","شتبغى.",
+  "عيون ["..Bot_Name.."] .",
+  }
+  
+  local bs = {
+"يع اي القرف ده يعم شوفلنا حد عدل😢.",
+"اووف هي دي الشفايف😍💋",
+"الوش مش مساعد🙁",
+"هفرتك شفايفك💋🤤",
+}
+
 local Text = msg.text
 local Text2 = Text:match("^"..Bot_Name.." (%d+)$")
 
@@ -7446,6 +7469,25 @@ if msg.SudoUser and Text == Bot_Name and not Text2 then
 return sendMsg(msg.chat_id_,msg.id_,su[math.random(#su)])
 elseif not msg.SudoUser and Text== Bot_Name and not Text2 then  
 return sendMsg(msg.chat_id_,msg.id_,ss97[math.random(#ss97)])
+
+elseif Text:match("^قول (.*)$") then
+if utf8.len(Text:match("^قول (.*)$")) > 100 then 
+return sendMsg(msg.chat_id_,msg.id_,"- ماقدرش اقول اكتر من 100 حرف 🍂")
+end
+local callback_Text = FlterName(Text:match("^قول (.*)$"),100)
+if callback_Text and callback_Text == 'الاسم سبام ' then
+return sendMsg(msg.chat_id_,msg.id_,"- للاسف النص هذا مخالف ")
+else
+return sendMsg(msg.chat_id_,0,callback_Text) 
+end
+
+elseif Text:match("^بوس (.*)$") then 
+if msg.reply_id then 
+return sendMsg(msg.chat_id_,msg.reply_id,bs[math.random(#bs)])
+else
+return sendMsg(msg.chat_id_,msg.id_,"ابوس مين بقا اعملو رد🌚")
+end 
+
 elseif not msg.SudoUser and Text==" خيروك" then
 sendMsg(msg.chat_id_,msg.id_,ker[math.random(#ker)])
 elseif not msg.SudoUser and Text==" حروف" or Text == "حروف" or Text == " حر" or Text == "حر" then
@@ -7460,7 +7502,7 @@ elseif not msg.SudoUser and Text==" صراحه" or Text == "صراحه" then
 sendMsg(msg.chat_id_,msg.id_,srah[math.random(#srah)])
 
 
-elseif not msg.SudoUser and Text=="بوت" or Text == "البوت" then
+elseif not msg.SudoUser and Text=="بوت" or Text == "البوت" or Text == "بوت" then
 sendMsg(msg.chat_id_,msg.id_,bott[math.random(#bott)])
 
 elseif Text== "باسل" or Text== "بيسو" or Text== "بسله" then return sendMsg(msg.chat_id_,msg.id_,"[مطور السورس👑](T.ME/xb_0b)")
@@ -7866,7 +7908,7 @@ Boss = {
 "^(الغاء)$",
 "^(الساعه)$",
 "^(التاريخ)$",
-"^(اباظة)$",
+"^(اباظه)$",
 "^(متجر الملفات)$",
 "^(الملفات)$",
 "^(اصدار السورس)$",
