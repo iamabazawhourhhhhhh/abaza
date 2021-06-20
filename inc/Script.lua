@@ -7429,6 +7429,16 @@ local mkl = {
 "• {  *بسم - الله - ذا - المقال - بتاخذه - غصب - عنهم - يلا - يا - حلو* }",
 "• {  *العب - لعب - قوي - اسطوري - العب - اكسر - عين - اي - احد - يلعب - معك* }",
 }
+
+local bott = {
+"انت البوت",
+"يا روح قلب البوت💙",
+"تفضل عيـني❤",
+"عيـونـي لك😍",
+"حيـاة البوت🖤",
+"اسمي ["..Bot_Name.."] .",
+}
+
 local Text = msg.text
 local Text2 = Text:match("^"..Bot_Name.." (%d+)$")
 
@@ -7441,13 +7451,17 @@ sendMsg(msg.chat_id_,msg.id_,ker[math.random(#ker)])
 elseif not msg.SudoUser and Text==" حروف" or Text == "حروف" or Text == " حر" or Text == "حر" then
 sendMsg(msg.chat_id_,msg.id_,hhh[math.random(#hhh)])
 
-elseif not msg.SudoUser and Text=="تويت" or Text == "كت تويت" or Text == "تويتت" or Text == "كت" then
+elseif not msg.SudoUser and Text=="كت" or Text == "كت تويت" or Text == "كت" or Text == "تويت" then
 sendMsg(msg.chat_id_,msg.id_,drok[math.random(#drok)])
 elseif not msg.SudoUser and Text==" مقالات" or Text == "مقالات" or Text == " 0" or Text == "0" then
 
 sendMsg(msg.chat_id_,msg.id_,mkl[math.random(#mkl)])
 elseif not msg.SudoUser and Text==" صراحه" or Text == "صراحه" then
 sendMsg(msg.chat_id_,msg.id_,srah[math.random(#srah)])
+
+
+elseif not msg.SudoUser and Text=="بوت" or Text == "البوت" then
+sendMsg(msg.chat_id_,msg.id_,bott[math.random(#bott)])
 
 elseif Text== "باسل" or Text== "بيسو" or Text== "بسله" then return sendMsg(msg.chat_id_,msg.id_,"[مطور السورس👑](T.ME/xb_0b)")
 elseif Text== "ايديي" or Text=="ايدي 🆔" then 
@@ -7852,6 +7866,7 @@ Boss = {
 "^(الغاء)$",
 "^(الساعه)$",
 "^(التاريخ)$",
+"^(اباظة)$",
 "^(متجر الملفات)$",
 "^(الملفات)$",
 "^(اصدار السورس)$",
