@@ -2041,7 +2041,7 @@ end
 --=======================================================
 --=======================================================
 if MsgText[1] == "مسح المنشئيين الاساسيين" or MsgText[1] == "مسح المنشئين الاساسيين" or MsgText[1] == "مسح المنشئيين الاساسين" or MsgText[1] == "مسح المنشئين الاساسين" then 
-if not msg.SuperCreator then return "- هذا الامر يخص {المطور  ,المنشئ الاساسي,المالك} فقط  \n" end
+if not msg.SuperCreator then return "- هذا الامر يخص {المطور,المنشئ الاساسي,المالك} فقط  \n" end
 
 local Admins = redis:scard(boss..':MONSHA_Group:'..msg.chat_id_)
 if Admins == 0 then  
