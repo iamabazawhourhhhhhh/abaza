@@ -2041,14 +2041,14 @@ end
 --=======================================================
 --=======================================================
 if MsgText[1] == "مسح المنشئيين الاساسيين" or MsgText[1] == "مسح المنشئين الاساسيين" or MsgText[1] == "مسح المنشئيين الاساسين" or MsgText[1] == "مسح المنشئين الاساسين" then 
-if not msg.SuperCreator then return "- هذا الامر يخص {المطور » المنشئ الاساسي » لمالك} فقط  \n" end
+if not msg.Malk then return "- هذا الامر يخص {المطور,المالك} فقطط  \n" end
 
 local Admins = redis:scard(boss..':MONSHA_Group:'..msg.chat_id_)
 if Admins == 0 then  
-return "هناك خطا \n- عذرا لا يوجد منشئيين اساسييين ليتم مسحهم " 
+return "هناك خطا \n- عذرا لا يوجد منشئيين اساسييين ليتم مسحهم ✓" 
 end
 redis:del(boss..':MONSHA_Group:'..msg.chat_id_)
-return "- بواسطه ⋙ "..msg.TheRankCmd.."   \n- تم مسح {"..Admins.."} من المنشئيين في البوت "
+return "- بواسطه ⋙ "..msg.TheRankCmd.."   \n- تم مسح {"..Admins.."} من المنشئيين في البوت ✓"
 end
 
 if MsgText[1] == "مسح الرسائل المجدوله" or MsgText[1] == "مسح الميديا" or MsgText[1] == "مسح الوسائط" then 
