@@ -3880,7 +3880,7 @@ return '- اصدار سورس اباظة : *v'..version..'* '
 end
 
 if MsgText[1] == 'اصدار السورس' or MsgText[1] == 'الاصدار' then
-return 'ঌ اصدار سورس هيل*v'..version..'* \n'
+return 'ঌ اصدار سورس اباظة*v'..version..'* \n'
 end
 
 if (MsgText[1] == 'تحديث السورس' or MsgText[1] == 'تحديث السورس ™') then
@@ -4656,7 +4656,7 @@ return send_inline(msg.chat_id_,text,inline,msg.id_)
 end
 
 if MsgText[1] == "السورس" or MsgText[1]=="سورس" then
-local text = " 𝙒𝙀𝙇𝘾𝙊𝙈𝙀 𝙏𝙊 𝙎𝙊𝙐𝙍𝘾𝙀 𝘼𝘽𝘼𝙕𝘼 ⩫ "
+local video = " https://t.me/rrokkkaaa/19692 "
 local inline = {
 {{text = '𝙎𝙊𝙐𝙍𝘾𝙀 𝘼𝘽𝘼𝙕𝘼 ⩫ ',url="https://t.me/jjxxh"}},
 {{text = '-𝘿𝙀𝙑   👑',url="https://t.me/xb_1b"}},
