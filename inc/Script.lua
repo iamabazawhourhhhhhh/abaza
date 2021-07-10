@@ -4656,7 +4656,7 @@ return send_inline(msg.chat_id_,text,inline,msg.id_)
 end
 
 if MsgText[1] == "السورس" or MsgText[1]=="سورس" then
-local video =  https://t.me/rrokkkaaa/19692 
+local photo =  " https://t.me/rrokkkaaa/19708 "
 local inline = {
 {{text = '𝙎𝙊𝙐𝙍𝘾𝙀 𝘼𝘽𝘼𝙕𝘼 ⩫ ',url="https://t.me/jjxxh"}},
 {{text = '-𝘿𝙀𝙑   👑',url="https://t.me/xb_1b"}},
