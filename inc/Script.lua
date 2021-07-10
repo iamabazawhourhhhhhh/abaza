@@ -4663,7 +4663,7 @@ local inline = {
 {{text = '-𝙏𝙒𝘼𝙎𝙊𝙇 💬 ',url="https://t.me/Abazaxbot"}},
 }   
 return send_inline(msg.chat_id_,text,inline,msg.id_)
-return send_video(msg.chat_id_,text,inline,msg.id_)
+return sendvideo(msg.chat_id_,text,inline,msg.id_)
 end
 
 if MsgText[1] == "متجر الملفات" or MsgText[1]:lower() == "/store"  then
