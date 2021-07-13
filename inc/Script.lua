@@ -2275,7 +2275,6 @@ end
 if MsgText[1] == "تاك للكل" then
 if not msg.Admin then return "- هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n" end
 if not redis:get(boss.."lock_takkl"..msg.chat_id_) then  return "-  الامر معطل من قبل الادراة" end 
-if redis:get(boss.."chat:tagall"..msg.chat_id_) then  return "-  يمكنك عمل تاك للكل كل *5 دقائق* فقط" end 
 redis:setex(boss..'chat:tagall'..msg.chat_id_,300,true)
 if MsgText[2] and MsgText[2]:match('^ل %d+$') then
 taglimit = MsgText[2]:match('^ل %d+$'):gsub('ل ','')
