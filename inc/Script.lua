@@ -3896,19 +3896,10 @@ end
 
 
 if MsgText[1] == 'نسخه احتياطيه للمجموعات' then
-if not msg.SudoBase then return"- هذا الامر يخص {المطور الاساسي} فقط  \n" end
+if not msg.SudoBase then return"⌔︙  هذا الامر يخص {المطور الاساسي} فقط  \n" end
 return buck_up_groups(msg)
 end 
 
-if MsgText[1] == 'نسخه احتياطيه للمشتركين' then
-if not msg.SudoBase then return"- هذا الامر يخص {المطور الاساسي} فقط  \n" end
-return buck_up_users(msg)
-end 
-
-if MsgText[1] == 'نسخه احتياطيه للردود العامه' then
-if not msg.SudoBase then return"- هذا الامر يخص {المطور الاساسي} فقط  \n" end
-return buck_up_replay(msg)
-end 
 
 if MsgText[1] == 'رفع نسخه الاحتياطيه' then
 if not msg.SudoBase then return "- هذا الامر يخص {المطور الاساسي} فقط  \n" end
@@ -7925,8 +7916,6 @@ Boss = {
 "^(السيرفر)$",
 "^(اذاعه بالتثبيت)$",
 "^(نسخه احتياطيه للمجموعات)$",
-"^(نسخه احتياطيه للمشتركين)$",
-"^(نسخه احتياطيه للردود العامه)$",
 "^(رفع نسخه الاحتياطيه)$", 
 
 "^(تعطيل الردود العشوائيه)$", 

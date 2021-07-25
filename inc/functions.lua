@@ -2058,45 +2058,43 @@ end
 json_data =  json_data.."}"
 end
 
-
-
 local Save_Data = io.open("./inc/"..Bot_User..".json","w+")
 Save_Data:write(json_data..'}}')
 Save_Data:close()
-sendDocument(msg.chat_id_,msg.id_,"./inc/"..Bot_User..".json","- ملف النسخه الاحتياطيه ...\n- المجموعات » { "..#All_users_ID.." }\n- للبوت » "..Bot_User.."\n- التاريخ » "..os.date("%Y/%m/%d").."\n",dl_cb,nil)
+sendDocument(msg.chat_id_,msg.id_,"./inc/"..Bot_User..".json","| ملف النسخه الاحتياطيه ...\nالمجموعات » { "..#All_Groups_ID.." }\n| للبوت » "..Bot_User.."\nالتاريخ » "..os.date("%Y/%m/%d").."\n",dl_cb,nil)
 end
 
 function chat_list(msg)
-local list = redis:smembers(boss..'user:ids')
-message = '-قائمه المجموعات :\n\n'
+local list = redis:smembers(boss..'group:ids')
+message = '⌔︙ قائمه المجموعات :\n\n'
 for k,v in pairs(list) do 
-local info = redis:get(boss..'user:name'..v)
+local info = redis:get(boss..'group:name'..v)
 if info then 
 if utf8.len(info) > 25 then
 info = utf8.escape(utf8.gsub(info,0,25))..'...'
 end
-message = message..k..'ـ '..Flter_Markdown(info).. ' \nــ -⊱ { `' ..v.. '` } ⊰-\n\n'
+message = message..k..'ـ '..Flter_Markdown(info).. ' \nــ •⊱ { `' ..v.. '` } ⊰•\n\n'
 else 
-message = message..k.. 'ـ '..' ☜ -⊱ { `' ..v.. '` } ⊰- \n'
+message = message..k.. 'ـ '..' ☜ •⊱ { `' ..v.. '` } ⊰• \n'
 end 
 end
-all_users = '- قائمه المجموعات :<br><br>'
+all_groups = '⌔︙ قائمه المجموعات :<br><br>'
 for k,v in pairs(list) do 
-local info = redis:get(boss..'user:name'..v)
+local info = redis:get(boss..'group:name'..v)
 if info then
-all_users = all_users..' '..k..'- <span style="color: #bd2a2a;">'..info.. '</span> <br> ايدي ☜ (<span style="color:#078883;">' ..v.. '</span>)<br>'
+all_groups = all_groups..' '..k..'- <span style="color: #bd2a2a;">'..info.. '</span> <br> ايدي ☜ (<span style="color:#078883;">' ..v.. '</span>)<br>'
 else
-all_users = all_users..' '..k.. '- '..' ☜ (<span style="color:#078883;">' ..v.. '</span>) <br>'
+all_groups = all_groups..' '..k.. '- '..' ☜ (<span style="color:#078883;">' ..v.. '</span>) <br>'
 end 
 end
 
 if utf8.len(message) > 4096 then
-sendMsg(msg.chat_id_,1,'- عذرا لديك الكثير من المجموعات\n- سوف ارسل لك ملف فيها قائمه مجموعات المفعله انتظر لحظه ...')
-file = io.open("./inc/All_users.html", "w")
+sendMsg(msg.chat_id_,1,' عذرا لديك الكثير من المجموعات\n*⌔︙* سوف ارسل لك ملف فيها قائمه مجموعات المفعله انتظر لحظه ...')
+file = io.open("./inc/All_Groups.html", "w")
 file:write([[
 <html dir="rtl">
 <head>
-<title>قائمه المجموعات -</title>
+<title>قائمه المجموعات </title>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Harmattan" rel="stylesheet">
@@ -2104,24 +2102,19 @@ file:write([[
 </head>
 <style>*{font-family: 'Harmattan', sans-serif;font-weight: 600;text-shadow: 1px 1px 16px black;}</style>
 <body>
-<p style="color:#018bb6;font-size: 17px;font-weight: 600;" aligin="center">قائمه المجموعات -</p>
+<p style="color:#018bb6;font-size: 17px;font-weight: 600;" aligin="center">قائمه المجموعات </p>
 <hr>
-]]..all_users..[[
+]]..all_groups..[[
 
 </body>
 </html>
 ]])
 file:close()
-return sendDocument(msg.chat_id_,msg.id_,'./inc/All_users.html','- قائمه المجموعات بالكامله ✓ \n- يحتوي ('..#list..') مجموعه \n- افتح الملف في عارض HTML او بالمتصفح',dl_cb,nil)
+return sendDocument(msg.chat_id_,msg.id_,'./inc/All_Groups.html',' قائمه المجموعات بالكامله  \n يحتوي ('..#list..') مجموعه \nافتح الملف في عارض HTML او بالمتصفح',dl_cb,nil)
 else 
 return sendMsg(msg.chat_id_,1,message) 
 end 
 end
-
-
-
-
-
 
 
 
@@ -2153,8 +2146,7 @@ boss..'whitelist:'..id_group,
 boss..':MONSHA_BOT:'..id_group,
 boss..'owners:'..id_group,
 boss..'replay'..id_group,
-boss..':MONSHA_Group:'..id_group,
-boss..':Malk_Group:'..id_group
+boss..':MONSHA_Group:'..id_group
 )
 redis:srem(boss..'group:ids',id_group)
 end
